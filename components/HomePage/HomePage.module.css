@@ -1,0 +1,45 @@
+.contentContainer {
+  padding: 0 70px;
+  padding-top: 52px;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.title {
+  color: #c7ffea;
+  margin: 0;
+  font-weight: bold;
+  font-size: 48px;
+  flex: 1;
+}
+.appInfo {
+  color: #c7ffea;
+  font-size: 20px;
+}
+.body {
+  margin-top: 79px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #ffffff;
+  font-size: 20px;
+  position: relative;
+}
+.lessonsLink:hover,
+.reasonLink:hover,
+.codeLink:hover,
+.creditsLink:hover {
+  color: #32a4a7;
+}
+.footer {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+.imgsContainer {
+  display: flex;
+  gap: 32px;
+}

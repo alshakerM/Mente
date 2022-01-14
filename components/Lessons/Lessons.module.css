@@ -1,0 +1,107 @@
+.contentContainer {
+  position: relative;
+
+  padding-left: 70px;
+}
+.title {
+  padding-top: 51px;
+  font-size: 32px;
+}
+.filtersSection {
+  display: flex;
+  gap: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  align-items: center;
+}
+.filterText {
+  margin-right: 30px;
+  color: #32a4a7;
+}
+.filterOption {
+  padding: 0 30px;
+  background: #0000009d;
+  border: 0;
+  border-radius: 10px;
+  color: #32a4a7;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.dropdown {
+  color: #32a4a7;
+  height: 20px;
+}
+.dropdownIcon {
+  margin: 0;
+  padding: 0;
+  margin-right: -20px;
+}
+.guideNames {
+  font-size: 12px;
+  background-color: #0000009d;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  padding: 10px 0;
+  padding-left: 20px;
+  box-sizing: border-box;
+  display: none;
+}
+.types {
+  font-size: 10px;
+  background-color: #0000009d;
+  color: #fff;
+  border-radius: 10px;
+
+  padding: 5px;
+  box-sizing: border-box;
+  display: none;
+}
+.guideNames.isVisible {
+  display: block;
+}
+.types.isVisible {
+  display: block;
+}
+.typeList {
+  padding: 0;
+  padding-left: 10px
+}
+.audioSection {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  font-size: 32px;
+  overflow: auto;
+  max-height: 70vh;
+}
+.audioSection::-webkit-scrollbar {
+  display: none;
+}
+.audioSection p {
+  margin: 0;
+}
+.audioStatusContainer {
+  background: #000000a5 0% 0% no-repeat padding-box;
+  border-radius: 20px;
+  padding: 20px;
+  margin-right: 70px;
+  height: 133px;
+}
+.authorAndAlbum,
+.songInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.author,
+.album {
+  color: #32a4a7;
+}
