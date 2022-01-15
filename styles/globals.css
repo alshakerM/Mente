@@ -20,3 +20,16 @@ a {
 * {
   box-sizing: border-box;
 }
+.MuiSlider-rail {
+  background-color: #19484a !important;
+}
+.MuiSlider-thumbColorSecondary {
+  color: #32a4a7;
+}
+.MuiSlider-track {
+  color: #32a4a7;
+}
+.MuiSlider-thumbColorSecondary:active,
+.MuiSlider-thumbColorSecondary:hover {
+  box-shadow: none !important;
+}

@@ -1,13 +1,20 @@
 import styles from './Lessons.module.css';
 import AllLessons from '../../public/med-data.json';
 import React from 'react';
-import { Clear, PlayArrowRounded } from '@mui/icons-material';
+import {
+  Clear,
+  PlayArrowRounded,
+  VolumeDown,
+  VolumeOff,
+  VolumeUp,
+} from '@mui/icons-material';
 import { Dropdown } from '../Dropdown/dropdown';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useFilters, useLessonsProgress } from '../../hooks';
 import cx from 'classnames';
 import { convertTime } from '../../utils';
+import { Slider } from '@mui/material';
 
 const guides = AllLessons.map((data) => data.instructor);
 const noDuplicatesGuide = Array.from(new Set(guides));
@@ -22,7 +29,10 @@ export function Lessons() {
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
   const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
   const [pause, setPause] = React.useState(true);
+  const [position, setPosition] = React.useState(0);
   const audioRef = React.useRef();
+  const progressBarRef = React.useRef();
+  console.log();
 
   React.useEffect(() => {
     if (pause) {
@@ -105,9 +115,20 @@ export function Lessons() {
             <p className={styles.expandedSongName}>{openAudio.title}</p>
             <p className={styles.expandedSonAuthor}>{openAudio.instructor}</p>
           </div>
-          <div className={styles.progressBar}>
+          <div
+            className={styles.progressBar}
+            onClick={(event) => {
+              const progressTime =
+                (event.clientX / event.target.offsetWidth) *
+                  openAudio.duration -
+                11;
+              console.log(audioRef.parent);
+              audioRef.current.currentTime = progressTime;
+            }}
+          >
             <div
               className={styles.expandedProgressBar}
+              ref={progressBarRef}
               style={{ width: `${lessonsProgress[openAudio.id] * 100}%` }}
             ></div>
           </div>
@@ -129,6 +150,7 @@ export function Lessons() {
                 openAudio.duration * (1 - (lessonsProgress[openAudio.id] || 0))
               )}
             </p>
+
             <audio
               src={openAudio.mp3}
               ref={audioRef}
@@ -139,6 +161,30 @@ export function Lessons() {
                 );
               }}
               muted={false}
+            />
+          </div>
+          <div className={styles.volumeContainer}>
+            {position < 50 ? (
+              position === 0 ? (
+                <VolumeOff />
+              ) : (
+                <VolumeDown />
+              )
+            ) : (
+              <VolumeUp />
+            )}
+
+            <Slider
+              aria-label="time-indicator"
+              style={{ width: 200, marginLeft: 15 }}
+              size="small"
+              value={position}
+              min={0}
+              step={1}
+              onChange={(_, value) => {
+                setPosition(value);
+                audioRef.current.volume = position / 100;
+              }}
             />
           </div>
         </div>

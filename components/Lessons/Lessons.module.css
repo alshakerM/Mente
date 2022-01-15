@@ -128,7 +128,6 @@
 }
 .progressBar {
   height: 14px;
-
   margin-top: 2%;
   border-radius: 5px 0px 0px 5px;
   background: #19484a;
@@ -138,5 +137,9 @@
   margin-top: 2%;
   border-radius: 5px 0px 0px 5px;
   background: #32a4a7;
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
+}
+.volumeContainer {
+  display: flex;
+  justify-content: center;
 }
