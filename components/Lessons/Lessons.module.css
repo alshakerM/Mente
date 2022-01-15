@@ -57,7 +57,8 @@
   border-radius: 20px;
   padding: 20px;
   margin-right: 70px;
-  height: 133px;
+  height: 103px;
+  font-size: 24px;
 }
 .authorAndAlbum,
 .songInfo {
@@ -65,6 +66,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
+  font-size: 18px;
 }
 .author,
 .album {
