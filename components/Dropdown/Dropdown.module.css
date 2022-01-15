@@ -1,0 +1,11 @@
+.dropdown {
+  font-size: 18px;
+  background-color: #0000009d;
+  color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  color: #32a4a7;
+  font-family: 'Libre Baskerville', serif;
+}
