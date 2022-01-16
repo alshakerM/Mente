@@ -1,5 +1,6 @@
 import {
   Clear,
+  Pause,
   PlayArrowRounded,
   VolumeDown,
   VolumeOff,
@@ -11,12 +12,14 @@ import React from 'react';
 import { useLessonsProgress } from '../../hooks';
 import styles from './AudioPlayer.module.css';
 import { useRouter } from 'next/router';
+import cx from 'classnames';
 
 export function AudioPlayer({ openAudio }) {
   const [pause, setPause] = React.useState(true);
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
   const [position, setPosition] = React.useState(0);
   const [progressPosition, setProgressPosition] = React.useState(0);
+
   const audioRef = React.useRef();
   const router = useRouter();
   React.useEffect(() => {
@@ -26,7 +29,14 @@ export function AudioPlayer({ openAudio }) {
       audioRef.current?.play();
     }
   }, [pause]);
+  React.useEffect(() => {
+    audioRef.current.currentTime = progressPosition;
+  }, [progressPosition]);
 
+  function updateProgress(currentTime) {
+    setProgressPosition(currentTime);
+    updateLessonProgress(openAudio.id, currentTime / openAudio.duration);
+  }
   return (
     <div
       className={styles.expandedContent}
@@ -48,6 +58,32 @@ export function AudioPlayer({ openAudio }) {
         <p className={styles.expandedSongName}>{openAudio.title}</p>
         <p className={styles.expandedSonAuthor}>{openAudio.instructor}</p>
       </div>
+      <div className={styles.playIconContainer}>
+        {pause ? (
+          <PlayArrowRounded
+            className={styles.playIcon}
+            fontSize="large"
+            onClick={() => setPause(!pause)}
+          />
+        ) : (
+          <Pause
+            className={cx(styles.playIcon, { [styles.isPaused]: true })}
+            onClick={() => setPause(!pause)}
+          />
+        )}
+      </div>
+      <div className={styles.audioTimers}>
+        <p>
+          {convertTime(
+            openAudio.duration * (lessonsProgress[openAudio.id] || 0)
+          )}
+        </p>
+        <p>
+          {convertTime(
+            openAudio.duration * (1 - (lessonsProgress[openAudio.id] || 0))
+          )}
+        </p>
+      </div>
       <Slider
         sx={{ height: 15 }}
         value={progressPosition}
@@ -55,37 +91,13 @@ export function AudioPlayer({ openAudio }) {
         step={1}
         max={openAudio.duration}
         onChange={(_, value) => setProgressPosition(value)}
-        onClick={(event) => {
-          const progressTime =
-            (event.clientX / event.target.offsetWidth) * openAudio.duration -
-            20;
-          audioRef.current.currentTime = progressTime;
-        }}
       />
       <div className={styles.expandedAudioSection}>
-        <p>
-          {convertTime(
-            openAudio.duration * (lessonsProgress[openAudio.id] || 0)
-          )}
-        </p>
-
-        <button className={styles.playButton} onClick={() => setPause(!pause)}>
-          <PlayArrowRounded className={styles.playIcon} fontSize="large" />
-        </button>
-        <p>
-          {convertTime(
-            openAudio.duration * (1 - (lessonsProgress[openAudio.id] || 0))
-          )}
-        </p>
-
         <audio
           src={openAudio.mp3}
           ref={audioRef}
           onTimeUpdate={(event) => {
-            updateLessonProgress(
-              openAudio.id,
-              event.currentTarget.currentTime / event.currentTarget.duration
-            );
+            updateProgress(event.currentTarget.currentTime);
           }}
           muted={false}
         />
