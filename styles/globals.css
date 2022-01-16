@@ -26,10 +26,13 @@ a {
 .MuiSlider-thumbColorSecondary {
   color: #32a4a7;
 }
+.MuiSlider-thumbColorPrimary {
+  color: #32a4a7;
+}
 .MuiSlider-track {
   color: #32a4a7;
 }
-.MuiSlider-thumbColorSecondary:active,
-.MuiSlider-thumbColorSecondary:hover {
+.MuiSlider-thumbColorPrimary:active,
+.MuiSlider-thumbColorPrimary:hover {
   box-shadow: none !important;
 }
