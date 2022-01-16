@@ -18,7 +18,6 @@ import { Slider } from '@mui/material';
 
 const guides = AllLessons.map((data) => data.instructor);
 const noDuplicatesGuide = Array.from(new Set(guides));
-
 const types = AllLessons.map((data) => data.type);
 const distinctTypes = Array.from(new Set(types));
 
@@ -43,7 +42,9 @@ export function Lessons() {
   return (
     <div className={styles.backgroundImgContainer}>
       <div className={styles.contentContainer}>
-        <h1 className={styles.title}>Lessons</h1>
+        <h1 id="lessons" className={styles.title}>
+          Lessons
+        </h1>
         <div className={styles.filtersSection}>
           <p className={styles.filterText}>Filters</p>
           <button
@@ -79,13 +80,21 @@ export function Lessons() {
         </div>
         <ul className={styles.audioSection}>
           {lessons.map((lesson) => (
-            <li className={styles.audioStatusContainer} key={lesson.mp3}>
+            <li
+              className={styles.audioStatusContainer}
+              key={lesson.mp3}
+              style={{
+                background: `linear-gradient(90deg, rgba(50, 164, 167, 0.5) ${
+                  lessonsProgress[lesson.id] * 100
+                }%, #000000a5  0%)`,
+              }}
+            >
               <Link shallow href={`?lessonId=${lesson.id}`}>
                 <a>
                   <div className={styles.songInfo}>
                     <p className={styles.songName}>{lesson.title}</p>
                     <p className={styles.timer}>
-                      {(lesson.duration / 60).toFixed(1)} Min
+                      {convertTime(lesson.duration)} Min
                     </p>
                   </div>
                   <div className={styles.authorAndAlbum}>
