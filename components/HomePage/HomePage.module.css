@@ -17,7 +17,7 @@
 }
 .appInfo {
   color: #c7ffea;
-  font-size: 20px;
+  font-size: 18px;
 }
 .body {
   margin-top: 79px;
@@ -25,7 +25,7 @@
   flex-direction: column;
   gap: 15px;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 18px;
   position: relative;
 }
 .lessonsLink:hover,

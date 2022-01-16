@@ -1,12 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Festive&family=Libre+Baskerville:wght@400;700&family=Roboto:ital@1&family=Zen+Kurenaido&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
   color: #ffffff;
   font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  height: 100%;
 }
-
+#__next {
+  height: 100%;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -14,4 +19,17 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.MuiSlider-rail {
+  background-color: #19484a !important;
+}
+.MuiSlider-thumbColorSecondary {
+  color: #32a4a7;
+}
+.MuiSlider-track {
+  color: #32a4a7;
+}
+.MuiSlider-thumbColorSecondary:active,
+.MuiSlider-thumbColorSecondary:hover {
+  box-shadow: none !important;
 }
