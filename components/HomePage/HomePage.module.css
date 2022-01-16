@@ -1,8 +1,18 @@
 .contentContainer {
-  padding: 0 70px;
   padding-top: 52px;
+  min-height: 100%;
+  background: url(/_next/image?url=%2Fhome-img.png&w=1920&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+@media screen and (max-width: 720px) {
+  .contentContainer {
+    background-image: url(/_next/image?url=%2Fhome-img.png&w=640&q=80);
+  }
 }
 .header {
+  padding: 0 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +27,7 @@
 }
 .appInfo {
   color: #c7ffea;
+  margin: 10px 0;
   font-size: 18px;
 }
 .body {
@@ -27,6 +38,7 @@
   color: #ffffff;
   font-size: 18px;
   position: relative;
+  padding: 0 70px;
 }
 .lessonsLink:hover,
 .reasonLink:hover,
