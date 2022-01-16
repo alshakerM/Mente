@@ -31,8 +31,6 @@ export function Lessons() {
   const [pause, setPause] = React.useState(true);
   const [position, setPosition] = React.useState(0);
   const audioRef = React.useRef();
-  const progressBarRef = React.useRef();
-  console.log();
 
   React.useEffect(() => {
     if (pause) {
@@ -122,13 +120,12 @@ export function Lessons() {
                 (event.clientX / event.target.offsetWidth) *
                   openAudio.duration -
                 11;
-              console.log(audioRef.parent);
               audioRef.current.currentTime = progressTime;
             }}
           >
+            (87 - event.clientX) /  event.target.offsetWidth)
             <div
               className={styles.expandedProgressBar}
-              ref={progressBarRef}
               style={{ width: `${lessonsProgress[openAudio.id] * 100}%` }}
             ></div>
           </div>

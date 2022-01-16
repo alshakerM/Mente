@@ -40,7 +40,7 @@
 .audioSection {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
   font-size: 32px;
   list-style: none;
   padding: 0;
