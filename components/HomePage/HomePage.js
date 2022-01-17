@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './HomePage.module.css';
 import Image from 'next/image';
 import { Lessons } from '../Lessons/Lessons';
+import { Credits } from '../Credits/Credits';
 
 export function HomePage() {
   return (
@@ -22,9 +23,10 @@ export function HomePage() {
           <Link href="/">
             <a className={styles.codeLink}>Source Code</a>
           </Link>
-          <Link href="/">
-            <a className={styles.creditsLink}>Credits</a>
-          </Link>
+
+          <a className={styles.creditsLink} href="#credits">
+            Credits
+          </a>
         </div>
         <div className={styles.footer}>
           <p>All Audio Material Provided By</p>
@@ -46,6 +48,7 @@ export function HomePage() {
       </div>
 
       <Lessons />
+      <Credits />
     </>
   );
 }
