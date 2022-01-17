@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './HomePage.module.css';
 import Image from 'next/image';
 import { Lessons } from '../Lessons/Lessons';
+import { WhyMeditate } from '../WhyMeditate/WhyMeditate';
 
 export function HomePage() {
   return (
@@ -16,9 +17,10 @@ export function HomePage() {
             Lessons
           </a>
 
-          <Link href="/">
-            <a className={styles.reasonLink}>Why Meditate</a>
-          </Link>
+          <a className={styles.reasonLink} href="#why-meditate">
+            Why Meditate
+          </a>
+
           <Link href="/">
             <a className={styles.codeLink}>Source Code</a>
           </Link>
@@ -46,6 +48,7 @@ export function HomePage() {
       </div>
 
       <Lessons />
+      <WhyMeditate />
     </>
   );
 }
