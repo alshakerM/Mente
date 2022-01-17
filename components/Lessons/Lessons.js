@@ -80,21 +80,13 @@ export function Lessons() {
         </div>
         <ul className={styles.audioSection}>
           {lessons.map((lesson) => (
-            <li
-              className={styles.audioStatusContainer}
-              key={lesson.mp3}
-              style={{
-                background: `linear-gradient(90deg, rgba(50, 164, 167, 0.5) ${
-                  lessonsProgress[lesson.id] * 100
-                }%, #000000a5  0%)`,
-              }}
-            >
+            <li className={styles.audioStatusContainer} key={lesson.mp3}>
               <Link shallow href={`?lessonId=${lesson.id}`}>
                 <a>
                   <div className={styles.songInfo}>
                     <p className={styles.songName}>{lesson.title}</p>
                     <p className={styles.timer}>
-                      {convertTime(lesson.duration)} Min
+                      {(lesson.duration / 60).toFixed(1)} Min
                     </p>
                   </div>
                   <div className={styles.authorAndAlbum}>
@@ -114,7 +106,7 @@ export function Lessons() {
             <Clear
               className={styles.expandedClearIcon}
               onClick={() =>
-                router.push('/lessons', undefined, { shallow: true })
+                router.push('/', undefined, { shallow: true })
               }
             />
           </div>
@@ -132,7 +124,6 @@ export function Lessons() {
               audioRef.current.currentTime = progressTime;
             }}
           >
-            (87 - event.clientX) /  event.target.offsetWidth)
             <div
               className={styles.expandedProgressBar}
               style={{ width: `${lessonsProgress[openAudio.id] * 100}%` }}
