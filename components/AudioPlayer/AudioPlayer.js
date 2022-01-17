@@ -19,6 +19,7 @@ export function AudioPlayer({ openAudio }) {
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
   const [position, setPosition] = React.useState(0);
   const [progressPosition, setProgressPosition] = React.useState(0);
+  const [seekActivated, setSeekActivated] = React.useState(false);
 
   const audioRef = React.useRef();
   const router = useRouter();
@@ -30,13 +31,17 @@ export function AudioPlayer({ openAudio }) {
     }
   }, [pause]);
   React.useEffect(() => {
-    audioRef.current.currentTime = progressPosition;
-  }, [progressPosition]);
+    if (seekActivated) {
+      audioRef.current.currentTime = progressPosition;
+      setSeekActivated(false);
+    }
+  }, [progressPosition, seekActivated]);
 
-  function updateProgress(currentTime) {
+  const updateProgress = (currentTime) => {
     setProgressPosition(currentTime);
     updateLessonProgress(openAudio.id, currentTime / openAudio.duration);
-  }
+  };
+
   return (
     <div
       className={styles.expandedContent}
@@ -90,7 +95,10 @@ export function AudioPlayer({ openAudio }) {
         min={0}
         step={1}
         max={openAudio.duration}
-        onChange={(_, value) => setProgressPosition(value)}
+        onChange={(_, value) => {
+          setSeekActivated(true);
+          setProgressPosition(value);
+        }}
       />
       <div className={styles.expandedAudioSection}>
         <audio

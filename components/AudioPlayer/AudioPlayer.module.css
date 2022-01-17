@@ -31,7 +31,7 @@
 .expandedSonAuthor {
   color: #32a4a7;
   font-size: 25px;
-  margin-bottom: calc(100vh - 31%);
+  margin-bottom: calc(100vh - 32%);
 }
 .expandedAudioSection {
   display: flex;
@@ -67,4 +67,25 @@
 .volumeContainer {
   display: flex;
   justify-content: center;
+}
+.audioTimers {
+  display: flex;
+  justify-content: space-between;
+  color: #32a4a7;
+}
+.audioTimers * {
+  margin: 0;
+}
+.playIconContainer {
+  display: flex;
+  justify-content: center;
+}
+.playIcon {
+  width: 100px !important;
+  height: 100px !important;
+  background-color: #32a4a7;
+  border-radius: 50%;
+}
+.playIcon.isPaused {
+  padding: 8px;
 }
