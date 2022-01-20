@@ -6,7 +6,7 @@ export function Credits() {
     <div className={styles.contentContainer} id="credits">
       <h1 className={styles.title}>Mente</h1>
       <div className={styles.iconsContainer}>
-        <a href="https://github.com/alshakerM" target="_blank" rel="noreferrer">
+        <a href="https://github.com/alshakerM/Mente" target="_blank" rel="noreferrer">
           <GitHub className={styles.gitHubIcon} />
         </a>
         <a
