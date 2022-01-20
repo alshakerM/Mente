@@ -136,7 +136,6 @@ export function Lessons() {
               audioRef.current.currentTime = progressTime;
             }}
           >
-            (87 - event.clientX) / event.target.offsetWidth)
             <div
               className={styles.expandedProgressBar}
               style={{ width: `${lessonsProgress[openAudio.id] * 100}%` }}
