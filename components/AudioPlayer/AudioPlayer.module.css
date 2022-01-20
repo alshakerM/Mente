@@ -1,4 +1,4 @@
-.expandedContent {
+.Content {
   margin: 40px 40px;
   height: calc(100vh - 80px);
   width: calc(100vw - 80px);
@@ -10,30 +10,30 @@
   top: 0;
   padding: 31px 47px;
 }
-.expandedHeader {
+.Header {
   display: flex;
   align-items: center;
 }
-.expandedTitle {
+.Title {
   color: #32a4a7;
   font-size: 25px;
   flex: 1;
 }
-.expandedClearIcon {
+.ClearIcon {
   fill: #707070;
 }
-.expandedBody {
+.Body {
   text-align: center;
 }
-.expandedSongName {
+.SongName {
   font-size: 40px;
 }
-.expandedSonAuthor {
+.SonAuthor {
   color: #32a4a7;
   font-size: 25px;
   margin-bottom: calc(100vh - 32%);
 }
-.expandedAudioSection {
+.AudioSection {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@
   border-radius: 5px 0px 0px 5px;
   background: #19484a;
 }
-.expandedProgressBar {
+.ProgressBar {
   height: 14px;
   margin-top: 2%;
   border-radius: 5px 0px 0px 5px;
@@ -79,6 +79,11 @@
 .playIconContainer {
   display: flex;
   justify-content: center;
+}
+.playButton {
+  border: 0;
+  background: 0;
+  padding: 0;
 }
 .playIcon {
   width: 100px !important;

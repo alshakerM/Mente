@@ -44,38 +44,38 @@ export function AudioPlayer({ openAudio }) {
 
   return (
     <div
-      className={styles.expandedContent}
+      className={styles.Content}
       onKeyDown={(e) => {
         if (e.keyCode === 27) {
           router.push('/lessons', undefined, { shallow: true });
         }
       }}
     >
-      <div className={styles.expandedHeader}>
-        <p className={styles.expandedTitle}>LESSON</p>
+      <div className={styles.Header}>
+        <p className={styles.Title}>LESSON</p>
 
         <Clear
-          className={styles.expandedClearIcon}
+          className={styles.ClearIcon}
           onClick={() => router.push('/lessons', undefined, { shallow: true })}
         />
       </div>
-      <div className={styles.expandedBody}>
-        <p className={styles.expandedSongName}>{openAudio.title}</p>
-        <p className={styles.expandedSonAuthor}>{openAudio.instructor}</p>
+      <div className={styles.Body}>
+        <p className={styles.SongName}>{openAudio.title}</p>
+        <p className={styles.SonAuthor}>{openAudio.instructor}</p>
       </div>
-      <div className={styles.playIconContainer}>
-        {pause ? (
-          <PlayArrowRounded
-            className={styles.playIcon}
-            fontSize="large"
-            onClick={() => setPause(!pause)}
-          />
-        ) : (
-          <Pause
-            className={cx(styles.playIcon, { [styles.isPaused]: true })}
-            onClick={() => setPause(!pause)}
-          />
-        )}
+      <div
+        className={styles.playIconContainer}
+        onClick={() => setPause(!pause)}
+      >
+        <button className={styles.playButton}>
+          {pause ? (
+            <PlayArrowRounded className={styles.playIcon} fontSize="large" />
+          ) : (
+            <Pause
+              className={cx(styles.playIcon, { [styles.isPaused]: true })}
+            />
+          )}
+        </button>
       </div>
       <div className={styles.audioTimers}>
         <p>
@@ -100,7 +100,7 @@ export function AudioPlayer({ openAudio }) {
           setProgressPosition(value);
         }}
       />
-      <div className={styles.expandedAudioSection}>
+      <div className={styles.AudioSection}>
         <audio
           src={openAudio.mp3}
           ref={audioRef}
