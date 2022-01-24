@@ -63,11 +63,8 @@ export function AudioPlayer({ openAudio }) {
         <p className={styles.SongName}>{openAudio.title}</p>
         <p className={styles.SonAuthor}>{openAudio.instructor}</p>
       </div>
-      <div
-        className={styles.playIconContainer}
-        onClick={() => setPause(!pause)}
-      >
-        <button className={styles.playButton}>
+      <div className={styles.playIconContainer}>
+        <button className={styles.playButton} onClick={() => setPause(!pause)}>
           {pause ? (
             <PlayArrowRounded className={styles.playIcon} fontSize="large" />
           ) : (
