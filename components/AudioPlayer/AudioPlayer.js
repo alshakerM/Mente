@@ -47,7 +47,7 @@ export function AudioPlayer({ openAudio }) {
       className={styles.Content}
       onKeyDown={(e) => {
         if (e.keyCode === 27) {
-          router.push('/lessons', undefined, { shallow: true });
+          router.push('/', undefined, { shallow: true });
         }
       }}
     >
@@ -56,7 +56,7 @@ export function AudioPlayer({ openAudio }) {
 
         <Clear
           className={styles.ClearIcon}
-          onClick={() => router.push('/lessons', undefined, { shallow: true })}
+          onClick={() => router.push('/', undefined, { shallow: true })}
         />
       </div>
       <div className={styles.Body}>

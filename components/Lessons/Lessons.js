@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 import { useFilters } from '../../hooks';
 import cx from 'classnames';
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer';
+import { useLessonsProgress } from '../../hooks';
+import { convertTime } from '../../utils';
 
 const guides = AllLessons.map((data) => data.instructor);
 const noDuplicatesGuide = Array.from(new Set(guides));
@@ -17,6 +19,7 @@ export function Lessons() {
   const router = useRouter();
   const { lessonId } = router.query;
   const { lessons, filters, addFilter } = useFilters(AllLessons);
+  const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
 
   const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
 
