@@ -1,5 +1,5 @@
 import React from 'react';
-import subs from '../../public/subs.json';
+import subs from './subs.json'
 import styles from './AudioWithSubs.module.css';
 
 function findSegments(ms) {
@@ -30,7 +30,7 @@ export function AudioWithSubs({ pause, setCurrentProgress }) {
   }, [pause]);
   const [time, setTime] = React.useState(0);
   return (
-    <div>
+    <div className={styles.audioContainer}>
       <audio
         onTimeUpdate={(e) => {
           setCurrentProgress(

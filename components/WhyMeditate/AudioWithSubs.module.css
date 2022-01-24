@@ -8,7 +8,8 @@
 
 @keyframes appear {
   0% {
-    background: #32a4a7;
+    background: #a85a5d;
+    border-radius: 10px;
   }
   20% {
     opacity: 1;
@@ -26,4 +27,7 @@
 }
 .audio {
   margin-top: 10px;
+}
+.audioContainer {
+  min-height: 109px;
 }

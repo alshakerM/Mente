@@ -43,11 +43,11 @@
   width: 50px;
   height: 50px;
 }
-.pauseIcon {
+.pauseIcon,
+.playIcon.isPlayed {
   width: 150px;
   height: 150px;
   color: #102914;
-
 }
 
 .playerContainer {
@@ -95,7 +95,7 @@
 
 .svg circle {
   fill: none;
-  stroke-width: 5;
+  stroke-width: 4;
   stroke: #32afc3;
   transform: translate(5px, 5px);
   stroke-dasharray: 760;
@@ -103,7 +103,7 @@
 }
 
 .svg circle:nth-child(1) {
-  stroke-dashoffset: calc(760 - (760 * var(--currentProgress)));
+  stroke-dashoffset: calc(756 - (756 * var(--currentProgress)));
   stroke: #a85a5d;
 }
 .progress {

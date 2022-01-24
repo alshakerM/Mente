@@ -5,9 +5,9 @@ import styles from './WhyMeditate.module.css';
 import cx from 'classnames';
 
 export function WhyMeditate() {
-  const [pause, setPause] = React.useState(false);
+  const [pause, setPause] = React.useState(true);
+  const [isPlayed, setIsPlayed] = React.useState(false);
   const [currentProgress, setCurrentProgress] = React.useState(0);
-  console.log(currentProgress);
   return (
     <div className={styles.contentContainer} id="why-meditate">
       <h1 className={styles.title}>Why Meditate?</h1>
@@ -16,11 +16,11 @@ export function WhyMeditate() {
         concise case for mediation in this recording.
       </p>
       <div
-        className={cx(styles.playerContainer, { [styles.isPlayed]: !pause })}
+        className={cx(styles.playerContainer, { [styles.isPlayed]: isPlayed })}
       >
         <svg
           viewBox="0 0 250 250"
-          className={cx(styles.svg, { [styles.isPlayed]: !pause })}
+          className={cx(styles.svg, { [styles.isPlayed]: isPlayed })}
           style={{ '--currentProgress': currentProgress }}
         >
           <circle
@@ -32,9 +32,9 @@ export function WhyMeditate() {
         </svg>
 
         <div
-          className={cx(styles.audioContainer, { [styles.isPlayed]: !pause })}
+          className={cx(styles.audioContainer, { [styles.isPlayed]: isPlayed })}
         >
-          {!pause && (
+          {isPlayed && (
             <>
               <AudioWithSubs
                 pause={pause}
@@ -43,11 +43,18 @@ export function WhyMeditate() {
             </>
           )}
           <button
-            onClick={() => setPause(!pause)}
+            onClick={() => {
+              if (!isPlayed) {
+                setIsPlayed(true);
+              }
+              setPause(!pause);
+            }}
             className={styles.playPauseIconContainer}
           >
             {pause ? (
-              <PlayArrowRounded className={styles.playIcon} />
+              <PlayArrowRounded
+                className={cx(styles.playIcon, { [styles.isPlayed]: isPlayed })}
+              />
             ) : (
               <PauseRounded className={styles.pauseIcon} />
             )}
