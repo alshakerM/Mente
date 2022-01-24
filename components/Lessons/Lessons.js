@@ -118,7 +118,7 @@ export function Lessons() {
             <Clear
               className={styles.expandedClearIcon}
               onClick={() =>
-                router.push('/lessons', undefined, { shallow: true })
+                router.push('/', undefined, { shallow: true })
               }
             />
           </div>
