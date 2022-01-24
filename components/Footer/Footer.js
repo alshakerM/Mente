@@ -1,7 +1,7 @@
 import { GitHub, Twitter } from '@mui/icons-material';
-import styles from './Credits.module.css';
+import styles from './Footer.module.css';
 
-export function Credits() {
+export function Footer() {
   return (
     <div className={styles.contentContainer} id="credits">
       <h1 className={styles.title}>Mente</h1>

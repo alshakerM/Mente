@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './HomePage.module.css';
 import Image from 'next/image';
 import { Lessons } from '../Lessons/Lessons';
-import { Credits } from '../Credits/Credits';
+import { Credits, Footer } from '../Footer/Footer';
 
 export function HomePage() {
   return (
@@ -48,7 +48,7 @@ export function HomePage() {
       </div>
 
       <Lessons />
-      <Credits />
+      <Footer />
     </>
   );
 }
