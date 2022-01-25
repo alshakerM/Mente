@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 
 export function Footer() {
   return (
-    <div className={styles.contentContainer} id="credits">
+    <div className={styles.contentContainer}>
       <h1 className={styles.title}>Mente</h1>
       <div className={styles.iconsContainer}>
         <a href="https://github.com/alshakerM/Mente" target="_blank" rel="noreferrer">

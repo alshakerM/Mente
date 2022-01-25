@@ -23,10 +23,9 @@ export function HomePage() {
           <Link href="/">
             <a className={styles.codeLink}>Source Code</a>
           </Link>
-
-          <a className={styles.creditsLink} href="#credits">
-            Credits
-          </a>
+          <Link href="/">
+            <a className={styles.creditsLink}>Credits</a>
+          </Link>
         </div>
         <div className={styles.footer}>
           <p>All Audio Material Provided By</p>
