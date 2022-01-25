@@ -1,18 +1,18 @@
 .contentContainer {
   min-height: 100%;
-  background: url(/buddha-bg.jpg);
+  background: url(/buddha-bg2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .title {
   margin: 0;
-  padding: 50px 70px;
+  padding: 2% 4%;
 }
 .reason {
-  width: 620px;
+  max-width: 620px;
   height: 48px;
-  padding: 0 70px;
+  padding: 0 4%;
 }
 .audioContainer {
   background-color: #fffffffa;
@@ -25,6 +25,7 @@
   width: 100%;
   height: 100%;
   background-clip: content-box;
+  overflow: hidden;
 }
 
 .audioContainer.isPlayed {
@@ -34,22 +35,6 @@
   border: 15px solid rgba(0, 0, 0, 0);
 }
 
-.playPauseIconContainer {
-  border: 0;
-  background: 0;
-}
-.playIcon {
-  color: #102914;
-  width: 50px;
-  height: 50px;
-}
-.pauseIcon,
-.playIcon.isPlayed {
-  width: 150px;
-  height: 150px;
-  color: #102914;
-}
-
 .playerContainer {
   position: relative;
   margin-left: 5%;
@@ -57,55 +42,69 @@
   height: 70px;
   transform-origin: top;
   transition: all 1.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Libre Baskerville', serif;
 }
 .playerContainer.isPlayed {
   margin-top: 0;
   width: 600px;
   height: 600px;
+  max-width: calc(100% - 20px);
 }
-.svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  visibility: hidden;
-  transform: rotate(270deg);
-}
-.svg.isPlayed {
-  visibility: visible;
-  animation: visible 1.35s ease;
-}
-@keyframes visible {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  75% {
-    opacity: 0;
-  }
+
+@keyframes appear {
   100% {
     opacity: 1;
   }
 }
 
-.svg circle {
+.progress {
   fill: none;
   stroke-width: 4;
-  stroke: #32afc3;
-  transform: translate(5px, 5px);
+  stroke: #a85a5d;
+  transform: rotate(270deg);
+  transform-origin: center center;
   stroke-dasharray: 760;
   stroke-dashoffset: 760;
+  stroke-dashoffset: calc(756 - (756 * var(--currentProgress)));
 }
 
-.svg circle:nth-child(1) {
-  stroke-dashoffset: calc(756 - (756 * var(--currentProgress)));
-  stroke: #a85a5d;
+.audio {
+  margin-top: 10px;
 }
 .progress {
   stroke-linecap: round;
+}
+.playPauseButton {
+  animation: appear 100ms ease-in forwards;
+  opacity: 0;
+}
+.speedButton {
+  border-radius: 50%;
+  border: none;
+  min-height: 50px;
+  min-width: 50px;
+  font-size: 1.5em;
+  font-style: italic;
+  color: #a85a5d;
+  animation: delay 1.3s ease-out;
+}
+@keyframes delay {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  76% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
 }

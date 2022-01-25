@@ -1,6 +1,7 @@
 import React from 'react';
-import subs from './subs.json'
+import subs from './subs.json';
 import styles from './AudioWithSubs.module.css';
+import cx from 'classnames';
 
 function findSegments(ms) {
   const segments = subs.filter(
@@ -19,39 +20,57 @@ function findSegments(ms) {
   });
 }
 
-export function AudioWithSubs({ pause, setCurrentProgress }) {
-  const audioRef = React.useRef();
-  React.useEffect(() => {
-    if (pause) {
-      audioRef.current?.pause();
-    } else {
-      audioRef.current?.play();
-    }
-  }, [pause]);
-  const [time, setTime] = React.useState(0);
-  return (
-    <div className={styles.audioContainer}>
-      <audio
-        onTimeUpdate={(e) => {
-          setCurrentProgress(
-            e.currentTarget.currentTime / e.currentTarget.duration
-          );
-          setTime(e.currentTarget.currentTime);
-        }}
-        src="/sound.mp3"
-        style={{ width: 500 }}
-        className={styles.audio}
-        ref={audioRef}
-      />
-      {findSegments(time * 1000).map((segment) => (
-        <p key={segment.key} className={styles.phrase}>
+export function AudioWithSubs({ time }) {
+  const specialWords = [
+    'reality',
+    'confuse',
+    'meditation',
+    'world',
+    'symbols',
+    'minds',
+    'wealth',
+    'images',
+    'dangerous',
+    'myself',
+    'think',
+    'madness',
+    'compulsively',
+  ];
+
+  return findSegments(time * 1000).map((segment, index) => {
+    const allWords = segment.parts.reduce((words, word) => (words += word), '');
+    const specialWord = segment.parts.find((word) =>
+      specialWords.includes(word.trim())
+    );
+    return (
+      <>
+        <text
+          x={`${(10 - specialWord?.length) * 10}`}
+          y="140"
+          className={styles.specialWord}
+          clipPath="url(#outerCircle)"
+        >
+          {specialWord}
+        </text>
+        <text
+          textAnchor="middle"
+          key={segment.key}
+          className={styles.phrase}
+          x="125"
+          y={80 + index * 15}
+        >
           {segment.parts.map((word) => (
-            <span key={word} className={styles.word}>
+            <tspan
+              key={word}
+              className={cx(styles.word, {
+                [styles.isSpecial]: specialWords.includes(word.trim()),
+              })}
+            >
               {word}
-            </span>
+            </tspan>
           ))}
-        </p>
-      ))}
-    </div>
-  );
+        </text>
+      </>
+    );
+  });
 }

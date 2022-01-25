@@ -1,14 +1,14 @@
 .word {
-  /*
-      put your CSS here 
-    */
-  animation: appear 0.5s ease-in forwards;
-  opacity: 0;
+  font-size: 8px;
+}
+.word.isSpecial {
+  font-style: italic;
+  fill: #a85a5d;
 }
 
 @keyframes appear {
   0% {
-    background: #a85a5d;
+    color: #a85a5d;
     border-radius: 10px;
   }
   20% {
@@ -16,18 +16,30 @@
   }
   100% {
     opacity: 1;
-    color: black;
     background: transparent;
   }
 }
+
 .phrase {
   font-size: 20px;
   color: #000000;
-  font-family: Libre Baskerville;
+  animation: appear 0.5s ease-in forwards;
+  opacity: 0;
 }
-.audio {
-  margin-top: 10px;
+
+.specialWord {
+  fill: #a85a5d;
+  font-size: 40px;
+  opacity: 0;
+  position: absolute;
+  top: 40%;
+  animation: slideLeft 3.5s ease-in forwards;
 }
-.audioContainer {
-  min-height: 109px;
+@keyframes slideLeft {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
