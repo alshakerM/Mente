@@ -1,6 +1,6 @@
 import { PauseRounded, PlayArrowRounded } from '@mui/icons-material';
 import React from 'react';
-import { AudioWithSubs } from './AudioWithSubs';
+import { Captions } from './Captions';
 import styles from './WhyMeditate.module.css';
 import cx from 'classnames';
 
@@ -90,7 +90,7 @@ export function WhyMeditate() {
 
           {isPlayed && (
             <>
-              <AudioWithSubs time={time} />
+              <Captions time={time} />
             </>
           )}
         </svg>
@@ -107,6 +107,7 @@ export function WhyMeditate() {
         )}
 
         <audio
+          preload
           onTimeUpdate={(e) => {
             const progress =
               e.currentTarget.currentTime / e.currentTarget.duration;

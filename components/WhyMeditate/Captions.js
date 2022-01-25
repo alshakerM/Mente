@@ -1,6 +1,6 @@
 import React from 'react';
 import subs from './subs.json';
-import styles from './AudioWithSubs.module.css';
+import styles from './Captions.module.css';
 import cx from 'classnames';
 
 function findSegments(ms) {
@@ -20,7 +20,7 @@ function findSegments(ms) {
   });
 }
 
-export function AudioWithSubs({ time }) {
+export function Captions({ time }) {
   const specialWords = [
     'reality',
     'confuse',
@@ -39,38 +39,25 @@ export function AudioWithSubs({ time }) {
 
   return findSegments(time * 1000).map((segment, index) => {
     const allWords = segment.parts.reduce((words, word) => (words += word), '');
-    const specialWord = segment.parts.find((word) =>
-      specialWords.includes(word.trim())
-    );
     return (
-      <>
-        <text
-          x={`${(10 - specialWord?.length) * 10}`}
-          y="140"
-          className={styles.specialWord}
-          clipPath="url(#outerCircle)"
-        >
-          {specialWord}
-        </text>
-        <text
-          textAnchor="middle"
-          key={segment.key}
-          className={styles.phrase}
-          x="125"
-          y={80 + index * 15}
-        >
-          {segment.parts.map((word) => (
-            <tspan
-              key={word}
-              className={cx(styles.word, {
-                [styles.isSpecial]: specialWords.includes(word.trim()),
-              })}
-            >
-              {word}
-            </tspan>
-          ))}
-        </text>
-      </>
+      <text
+        textAnchor="middle"
+        key={segment.key}
+        className={styles.phrase}
+        x="125"
+        y={80 + index * 15}
+      >
+        {segment.parts.map((word) => (
+          <tspan
+            key={word}
+            className={cx(styles.word, {
+              [styles.isSpecial]: specialWords.includes(word.trim()),
+            })}
+          >
+            {word}
+          </tspan>
+        ))}
+      </text>
     );
   });
 }

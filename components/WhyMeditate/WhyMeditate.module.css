@@ -82,28 +82,23 @@
   opacity: 0;
 }
 .speedButton {
+  top: -80px;
   border-radius: 50%;
-  border: none;
+  border: 1px solid #a85a5d;
   min-height: 50px;
+  background: none;
   min-width: 50px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-style: italic;
   color: #a85a5d;
-  animation: delay 1.3s ease-out;
+  position: relative;
+  animation: delay 1s ease-out;
 }
 @keyframes delay {
   0% {
     opacity: 0;
   }
-  25% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  76% {
-    opacity: 0.75;
-  }
+
   100% {
     opacity: 1;
   }
