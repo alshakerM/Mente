@@ -81,3 +81,15 @@ export function useLessonsProgress() {
   }
   return { lessonsProgress, updateLessonProgress };
 }
+
+/**
+ *
+ * @param {audio element} the audio element playbackRate.
+ * @param {numbers} speed numbers e.g(1, 1.25, 1.5, 1.75, 2)
+ * @param {index} which number
+ * @returns how fast you want the audio element to be e.g(1, 1.25, 1.5, 1.75, 2)
+ */
+
+export function playbackRate(audioPlaybackRate, numbers, index) {
+  return (audioPlaybackRate = numbers[index]);
+}

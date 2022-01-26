@@ -1,10 +1,10 @@
-import { PauseRounded, PlayArrowRounded } from '@mui/icons-material';
 import React from 'react';
 import { Captions } from './Captions';
 import styles from './WhyMeditate.module.css';
 import cx from 'classnames';
 
 const playbackRateNumbers = [1, 1.25, 1.5, 1.75, 2];
+
 export function WhyMeditate() {
   const [pause, setPause] = React.useState(true);
   const [isPlayed, setIsPlayed] = React.useState(false);
@@ -12,13 +12,13 @@ export function WhyMeditate() {
   const [speedIndex, setSpeedIndex] = React.useState(0);
 
   const audioRef = React.useRef();
+  audioRef.current.playbackRate = playbackRateNumbers[speedIndex];
   React.useEffect(() => {
     if (pause) {
       audioRef.current?.pause();
     } else {
       audioRef.current?.play();
     }
-    audioRef.current.playbackRate = playbackRateNumbers[speedIndex];
   }, [pause, speedIndex]);
   const [time, setTime] = React.useState(0);
 
@@ -119,7 +119,6 @@ export function WhyMeditate() {
             setTime(e.currentTarget.currentTime);
           }}
           src="/sound.mp3"
-          style={{ width: 500 }}
           className={styles.audio}
           ref={audioRef}
         />

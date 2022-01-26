@@ -7,16 +7,8 @@
 }
 
 @keyframes appear {
-  0% {
-    color: #a85a5d;
-    border-radius: 10px;
-  }
-  20% {
-    opacity: 1;
-  }
   100% {
     opacity: 1;
-    background: transparent;
   }
 }
 
@@ -25,21 +17,4 @@
   color: #000000;
   animation: appear 0.5s ease-in forwards;
   opacity: 0;
-}
-
-.specialWord {
-  fill: #a85a5d;
-  font-size: 40px;
-  opacity: 0;
-  position: absolute;
-  top: 40%;
-  animation: slideLeft 3.5s ease-in forwards;
-}
-@keyframes slideLeft {
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-  }
 }

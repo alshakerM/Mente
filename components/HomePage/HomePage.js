@@ -2,7 +2,8 @@ import Link from 'next/link';
 import styles from './HomePage.module.css';
 import Image from 'next/image';
 import { Lessons } from '../Lessons/Lessons';
-import { Credits, Footer } from '../Footer/Footer';
+import { Footer } from '../Footer/Footer';
+import { WhyMeditate } from '../WhyMeditate/WhyMeditate';
 
 export function HomePage() {
   return (
