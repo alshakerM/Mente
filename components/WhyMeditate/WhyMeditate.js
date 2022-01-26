@@ -10,17 +10,16 @@ export function WhyMeditate() {
   const [isPlayed, setIsPlayed] = React.useState(false);
   const [currentProgress, setCurrentProgress] = React.useState(0);
   const [speedIndex, setSpeedIndex] = React.useState(0);
-
+  const [time, setTime] = React.useState(0);
   const audioRef = React.useRef();
-  audioRef.current.playbackRate = playbackRateNumbers[speedIndex];
   React.useEffect(() => {
     if (pause) {
       audioRef.current?.pause();
     } else {
       audioRef.current?.play();
     }
+    audioRef.current.playbackRate = playbackRateNumbers[speedIndex];
   }, [pause, speedIndex]);
-  const [time, setTime] = React.useState(0);
 
   return (
     <div className={styles.contentContainer} id="why-meditate">
