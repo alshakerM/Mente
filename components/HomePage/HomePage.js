@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './HomePage.module.css';
 import Image from 'next/image';
 import { Lessons } from '../Lessons/Lessons';
-import { WhyMeditate } from '../WhyMeditate/WhyMeditate';
+import { Credits, Footer } from '../Footer/Footer';
 
 export function HomePage() {
   return (
@@ -49,6 +49,7 @@ export function HomePage() {
 
       <Lessons />
       <WhyMeditate />
+      <Footer />
     </>
   );
 }

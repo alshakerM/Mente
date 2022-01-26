@@ -1,24 +1,17 @@
 import styles from './Lessons.module.css';
 import AllLessons from '../../public/med-data.json';
 import React from 'react';
-import {
-  Clear,
-  PlayArrowRounded,
-  VolumeDown,
-  VolumeOff,
-  VolumeUp,
-} from '@mui/icons-material';
 import { Dropdown } from '../Dropdown/dropdown';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useFilters, useLessonsProgress } from '../../hooks';
+import { useFilters } from '../../hooks';
 import cx from 'classnames';
+import { AudioPlayer } from '../AudioPlayer/AudioPlayer';
+import { useLessonsProgress } from '../../hooks';
 import { convertTime } from '../../utils';
-import { Slider } from '@mui/material';
 
 const guides = AllLessons.map((data) => data.instructor);
 const noDuplicatesGuide = Array.from(new Set(guides));
-
 const types = AllLessons.map((data) => data.type);
 const distinctTypes = Array.from(new Set(types));
 
@@ -27,23 +20,15 @@ export function Lessons() {
   const { lessonId } = router.query;
   const { lessons, filters, addFilter } = useFilters(AllLessons);
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
-  const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
-  const [pause, setPause] = React.useState(true);
-  const [position, setPosition] = React.useState(0);
-  const audioRef = React.useRef();
 
-  React.useEffect(() => {
-    if (pause) {
-      audioRef.current?.pause();
-    } else {
-      audioRef.current?.play();
-    }
-  }, [pause]);
+  const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
 
   return (
     <div className={styles.backgroundImgContainer}>
       <div className={styles.contentContainer}>
-        <h1 className={styles.title}>Lessons</h1>
+        <h1 id="lessons" className={styles.title}>
+          Lessons
+        </h1>
         <div className={styles.filtersSection}>
           <p className={styles.filterText}>Filters</p>
           <button
@@ -79,13 +64,25 @@ export function Lessons() {
         </div>
         <ul className={styles.audioSection}>
           {lessons.map((lesson) => (
-            <li className={styles.audioStatusContainer} key={lesson.mp3}>
+            <li
+              className={styles.audioStatusContainer}
+              key={lesson.mp3}
+              style={
+                lessonsProgress[lesson.id]
+                  ? {
+                      background: `linear-gradient(90deg, rgba(50, 164, 167, 0.5) ${
+                        lessonsProgress[lesson.id] * 100
+                      }%, #000000a5  0%)`,
+                    }
+                  : { background: '#0000009d' }
+              }
+            >
               <Link shallow href={`?lessonId=${lesson.id}`}>
                 <a>
                   <div className={styles.songInfo}>
                     <p className={styles.songName}>{lesson.title}</p>
                     <p className={styles.timer}>
-                      {(lesson.duration / 60).toFixed(1)} Min
+                      {convertTime(lesson.duration)} Min
                     </p>
                   </div>
                   <div className={styles.authorAndAlbum}>
@@ -98,94 +95,7 @@ export function Lessons() {
           ))}
         </ul>
       </div>
-      {lessonId && (
-        <div className={styles.expandedContent}>
-          <div className={styles.expandedHeader}>
-            <p className={styles.expandedTitle}>LESSON</p>
-            <Clear
-              className={styles.expandedClearIcon}
-              onClick={() =>
-                router.push('/lessons', undefined, { shallow: true })
-              }
-            />
-          </div>
-          <div className={styles.expandedBody}>
-            <p className={styles.expandedSongName}>{openAudio.title}</p>
-            <p className={styles.expandedSonAuthor}>{openAudio.instructor}</p>
-          </div>
-          <div
-            className={styles.progressBar}
-            onClick={(event) => {
-              const progressTime =
-                (event.clientX / event.target.offsetWidth) *
-                  openAudio.duration -
-                11;
-              audioRef.current.currentTime = progressTime;
-            }}
-          >
-            (87 - event.clientX) /  event.target.offsetWidth)
-            <div
-              className={styles.expandedProgressBar}
-              style={{ width: `${lessonsProgress[openAudio.id] * 100}%` }}
-            ></div>
-          </div>
-          <div className={styles.expandedAudioSection}>
-            <p>
-              {convertTime(
-                openAudio.duration * (lessonsProgress[openAudio.id] || 0)
-              )}
-            </p>
-
-            <button
-              className={styles.playButton}
-              onClick={() => setPause(!pause)}
-            >
-              <PlayArrowRounded className={styles.playIcon} fontSize="large" />
-            </button>
-            <p>
-              {convertTime(
-                openAudio.duration * (1 - (lessonsProgress[openAudio.id] || 0))
-              )}
-            </p>
-
-            <audio
-              src={openAudio.mp3}
-              ref={audioRef}
-              onTimeUpdate={(event) => {
-                updateLessonProgress(
-                  openAudio.id,
-                  event.currentTarget.currentTime / event.currentTarget.duration
-                );
-              }}
-              muted={false}
-            />
-          </div>
-          <div className={styles.volumeContainer}>
-            {position < 50 ? (
-              position === 0 ? (
-                <VolumeOff />
-              ) : (
-                <VolumeDown />
-              )
-            ) : (
-              <VolumeUp />
-            )}
-
-            <Slider
-              aria-label="time-indicator"
-              style={{ width: 200, marginLeft: 15 }}
-              size="small"
-              value={position}
-              min={0}
-              step={1}
-              onChange={(_, value) => {
-                setPosition(value);
-                audioRef.current.volume = position / 100;
-              }}
-            />
-          </div>
-        </div>
-      )}
+      {lessonId && <AudioPlayer openAudio={openAudio} />}
     </div>
   );
 }

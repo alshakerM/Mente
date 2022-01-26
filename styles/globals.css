@@ -8,6 +8,7 @@ body {
   font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   height: 100%;
+  scroll-behavior: smooth;
 }
 #__next {
   height: 100%;
@@ -26,10 +27,13 @@ a {
 .MuiSlider-thumbColorSecondary {
   color: #32a4a7;
 }
+.MuiSlider-thumbColorPrimary {
+  color: #32a4a7;
+}
 .MuiSlider-track {
   color: #32a4a7;
 }
-.MuiSlider-thumbColorSecondary:active,
-.MuiSlider-thumbColorSecondary:hover {
+.MuiSlider-thumbColorPrimary:active,
+.MuiSlider-thumbColorPrimary:hover {
   box-shadow: none !important;
 }

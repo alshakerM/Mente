@@ -1,0 +1,32 @@
+.contentContainer {
+  min-width: 100%;
+  height: 544px;
+  background-color: #1d2c29;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  padding: 0 70px;
+  margin: 0;
+  color: #c7ffea;
+  font-size: 48px;
+}
+.iconsContainer {
+  padding: 40px 70px;
+  display: flex;
+  gap: 14px;
+  color: #c7ffea;
+}
+.twitterIcon,
+.gitHubIcon {
+  height: 40px;
+  width: 40px;
+}
+.creatorName {
+  padding: 0 70px;
+  color: #c7ffea;
+  font-size: 20px;
+}
