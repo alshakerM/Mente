@@ -44,9 +44,9 @@
   font-size: 32px;
   list-style: none;
   padding: 0;
+  padding-bottom: 20px;
   min-height: 100%;
   margin: 0;
-  padding-bottom: 50px;
 }
 .audioSection::-webkit-scrollbar {
   display: none;

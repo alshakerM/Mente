@@ -1,0 +1,20 @@
+.word {
+  font-size: 8px;
+}
+.word.isSpecial {
+  font-style: italic;
+  fill: #a85a5d;
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+.phrase {
+  font-size: 20px;
+  color: #000000;
+  animation: appear 0.5s ease-in forwards;
+  opacity: 0;
+}
