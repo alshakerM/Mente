@@ -68,7 +68,7 @@
 .footer {
   position: absolute;
   bottom: 5%;
-  right: 0;
+  right: 30px;
 }
 .imgsContainer {
   display: flex;
