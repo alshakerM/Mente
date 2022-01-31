@@ -202,7 +202,6 @@ export function HomePage() {
         <Lessons />
         <WhyMeditate />
         <Footer />
-        {console.log(router.asPath !== '/')}
         <ContinueListening defaultVisible={router.asPath === '/'} />
       </div>
     </>
