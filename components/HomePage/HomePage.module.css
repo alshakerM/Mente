@@ -74,9 +74,17 @@
   display: flex;
   gap: 32px;
 }
+.sun {
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
 @media screen and (max-width: 735px) {
   .buddha {
-    transform: translateX(-60vw);
+    transform: translateX(-70vw);
   }
   .footer {
     position: absolute;
