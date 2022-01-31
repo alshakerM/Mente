@@ -3,10 +3,6 @@
   padding-left: 70px;
 }
 .backgroundImgContainer {
-  background-image: url(/lessons-bg.jpg);
-  background-size: 100% auto;
-  background-attachment: fixed;
-  min-height: 100%;
 }
 .title {
   padding-top: 51px;
@@ -45,7 +41,7 @@
   list-style: none;
   padding: 0;
   padding-bottom: 20px;
-  min-height: 100%;
+
   margin: 0;
 }
 .audioSection::-webkit-scrollbar {

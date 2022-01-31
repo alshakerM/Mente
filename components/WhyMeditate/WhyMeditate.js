@@ -2,6 +2,7 @@ import React from 'react';
 import { Captions } from './Captions';
 import styles from './WhyMeditate.module.css';
 import cx from 'classnames';
+import { convertTime } from '../../utils';
 
 const playbackRateNumbers = [1, 1.25, 1.5, 1.75, 2];
 
@@ -45,12 +46,14 @@ export function WhyMeditate() {
           <clipPath id="outerCircle">
             <circle r="118" cx="125" cy="125"></circle>
           </clipPath>
-          <circle
-            r="122"
-            cx="125"
-            cy="125"
-            className={styles.progress}
-          ></circle>
+          {isPlayed && (
+            <circle
+              r="122"
+              cx="125"
+              cy="125"
+              className={styles.progress}
+            ></circle>
+          )}
           <circle
             r="118"
             cx="125"
@@ -58,6 +61,18 @@ export function WhyMeditate() {
             fill="white"
             id="textCircle"
           ></circle>
+          {isPlayed && (
+            <text
+              x="125"
+              textAnchor="middle"
+              y="30"
+              fill="#a85a5d"
+              fontSize="8px"
+              fontFamily="courier"
+            >
+              {convertTime(291.664 - time)}
+            </text>
+          )}
 
           {!pause ? (
             <>
@@ -87,13 +102,9 @@ export function WhyMeditate() {
             />
           )}
 
-          {isPlayed && (
-            <>
-              <Captions time={time} />
-            </>
-          )}
+          {isPlayed && <Captions time={time} />}
         </svg>
-        {isPlayed && !pause && (
+        {isPlayed && (
           <button
             onClick={(e) => {
               e.stopPropagation();

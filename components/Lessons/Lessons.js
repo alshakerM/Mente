@@ -71,7 +71,7 @@ export function Lessons() {
                 lessonsProgress[lesson.id]
                   ? {
                       background: `linear-gradient(90deg, rgba(50, 164, 167, 0.5) ${
-                        lessonsProgress[lesson.id] * 100
+                        lessonsProgress[lesson.id].progress * 100
                       }%, #000000a5  0%)`,
                     }
                   : { background: '#0000009d' }

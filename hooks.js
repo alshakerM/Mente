@@ -63,23 +63,36 @@ export function useFilters(lessons) {
   return { lessons: filteredLessons, filters: filtersState, addFilter };
 }
 
+const subscribers = new Set();
+
 export function useLessonsProgress() {
   const [lessonsProgress, setProgress] = React.useState({});
 
   React.useEffect(() => {
-    const storedProgress = localStorage.getItem('progress');
+    const storedProgress = localStorage.getItem('progressV2');
     if (storedProgress) {
       setProgress(JSON.parse(storedProgress));
     }
   }, []);
 
+  React.useEffect(() => {
+    subscribers.add(setProgress);
+    return () => {
+      subscribers.delete(setProgress);
+    };
+  }, [setProgress]);
+
   function updateLessonProgress(lessonId, progress) {
-    const newState = { ...progress };
-    newState[lessonId] = progress;
-    setProgress(newState);
-    localStorage.setItem('progress', JSON.stringify(newState));
+    const newState = { ...lessonsProgress };
+    newState[lessonId] = { progress, time: new Date().toISOString() };
+    localStorage.setItem('progressV2', JSON.stringify(newState));
+    subscribers.forEach((callback) => callback(newState));
   }
-  return { lessonsProgress, updateLessonProgress };
+
+  return {
+    lessonsProgress,
+    updateLessonProgress,
+  };
 }
 
 /**

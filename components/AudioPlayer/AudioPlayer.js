@@ -77,12 +77,13 @@ export function AudioPlayer({ openAudio }) {
       <div className={styles.audioTimers}>
         <p>
           {convertTime(
-            openAudio.duration * (lessonsProgress[openAudio.id] || 0)
+            openAudio.duration * (lessonsProgress[openAudio.id]?.progress || 0)
           )}
         </p>
         <p>
           {convertTime(
-            openAudio.duration * (1 - (lessonsProgress[openAudio.id] || 0))
+            openAudio.duration *
+              (1 - (lessonsProgress[openAudio.id]?.progress || 0))
           )}
         </p>
       </div>
