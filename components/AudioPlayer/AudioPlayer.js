@@ -24,6 +24,11 @@ export function AudioPlayer({ openAudio }) {
   const audioRef = React.useRef();
   const router = useRouter();
   React.useEffect(() => {
+    const volume = Number.parseFloat(localStorage.getItem('volume') || '50');
+    setPosition(volume);
+    audioRef.current.volume = volume / 100;
+  }, []);
+  React.useEffect(() => {
     if (pause) {
       audioRef.current?.pause();
     } else {
@@ -52,7 +57,7 @@ export function AudioPlayer({ openAudio }) {
       }}
     >
       <div className={styles.Header}>
-        <p className={styles.Title}>LESSON</p>
+        <p className={styles.title}>LESSON</p>
 
         <Clear
           className={styles.ClearIcon}
@@ -111,12 +116,26 @@ export function AudioPlayer({ openAudio }) {
       <div className={styles.volumeContainer}>
         {position < 50 ? (
           position === 0 ? (
-            <VolumeOff />
+            <button
+              className={styles.iconButton}
+              onClick={() =>
+                setPosition(Number.parseFloat(localStorage.getItem('volume')))
+              }
+            >
+              <VolumeOff />
+            </button>
           ) : (
-            <VolumeDown />
+            <button
+              onClick={() => setPosition(0)}
+              className={styles.iconButton}
+            >
+              <VolumeDown />
+            </button>
           )
         ) : (
-          <VolumeUp />
+          <button onClick={() => setPosition(0)} className={styles.iconButton}>
+            <VolumeUp />
+          </button>
         )}
 
         <Slider
@@ -127,7 +146,8 @@ export function AudioPlayer({ openAudio }) {
           step={1}
           onChange={(_, value) => {
             setPosition(value);
-            audioRef.current.volume = position / 100;
+            localStorage.setItem('volume', value);
+            audioRef.current.volume = value / 100;
           }}
         />
       </div>

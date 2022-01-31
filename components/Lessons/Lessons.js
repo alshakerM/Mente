@@ -82,7 +82,7 @@ export function Lessons() {
                   <div className={styles.songInfo}>
                     <p className={styles.songName}>{lesson.title}</p>
                     <p className={styles.timer}>
-                      {convertTime(lesson.duration)} Min
+                      {convertTime(lesson.duration)}
                     </p>
                   </div>
                   <div className={styles.authorAndAlbum}>

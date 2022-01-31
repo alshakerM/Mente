@@ -8,6 +8,7 @@ body {
   font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   scroll-behavior: smooth;
+  background-color: #0a0300;
 }
 
 a {

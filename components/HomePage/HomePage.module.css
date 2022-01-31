@@ -5,26 +5,16 @@
   top: 0;
   left: 0;
   scroll-behavior: smooth;
-  background: url(/buddha-bg2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
   z-index: 0;
 }
-.testDiv {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 30;
-}
+
 .buddhaOutLine {
   width: 100%;
   min-height: 100vh;
-  object-fit: cover;
   position: fixed;
   top: 0;
   left: 0;
+  object-fit: cover;
 }
 .buddhaStroke {
   fill: none;
@@ -41,7 +31,7 @@
 }
 
 .header {
-  padding: 0 70px;
+  padding: 0 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +57,7 @@
   color: #ffffff;
   font-size: 18px;
   position: relative;
-  padding: 0 70px;
+  padding: 0 5%;
 }
 .lessonsLink:hover,
 .reasonLink:hover,
@@ -78,9 +68,22 @@
 .footer {
   position: absolute;
   bottom: 5%;
-  right: 5%;
+  right: 30px;
 }
 .imgsContainer {
   display: flex;
   gap: 32px;
+}
+@media screen and (max-width: 735px) {
+  .buddha {
+    transform: translateX(-60vw);
+  }
+  .footer {
+    position: absolute;
+    bottom: 5%;
+    left: 30px;
+  }
+  .buddhaStroke {
+    stroke-width: 7px;
+  }
 }

@@ -56,9 +56,8 @@
   opacity: 0;
 }
 .speedButton {
-  top: -80px;
-  border-radius: 50%;
-  border: 1px solid #a85a5d;
+  top: -70px;
+  border: none;
   min-height: 50px;
   background: none;
   min-width: 50px;
