@@ -1,6 +1,6 @@
 .contentContainer {
   position: relative;
-  padding-left: 70px;
+  padding-left: 5%;
 }
 .title {
   padding-top: 51px;
@@ -19,7 +19,7 @@
   color: #32a4a7;
 }
 .filterOption {
-  padding: 11px 30px;
+  padding: 11px;
   background: #0000009d;
   border: 0;
   border-radius: 10px;
@@ -35,11 +35,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-size: 32px;
   list-style: none;
   padding: 0;
   padding-bottom: 20px;
-
   margin: 0;
 }
 .audioSection::-webkit-scrollbar {
@@ -49,12 +47,9 @@
   margin: 0;
 }
 .audioStatusContainer {
-  background-color: 1px solid #0000009d;
   border-radius: 20px;
   padding: 20px;
   margin-right: 70px;
-  height: 103px;
-  font-size: 24px;
 }
 .authorAndAlbum,
 .songInfo {
@@ -67,4 +62,26 @@
 .author,
 .album {
   color: #32a4a7;
+}
+@media screen and (max-width: 735px) {
+  .audioStatusContainer {
+    font-size: 15px;
+    height: unset;
+    border-radius: 10px;
+    margin-right: 15px;
+  }
+  .authorAndAlbum,
+  .songInfo {
+    font-size: 15px;
+  }
+  .audioSection {
+    margin-top: 10px;
+  }
+  .album {
+    max-width: 50%;
+    margin-right: -100px;
+  }
+  .filterOption {
+    font-size: 12px;
+  }
 }

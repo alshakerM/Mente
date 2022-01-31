@@ -6,7 +6,11 @@ export function Footer() {
     <div className={styles.contentContainer}>
       <h1 className={styles.title}>Mente</h1>
       <div className={styles.iconsContainer}>
-        <a href="https://github.com/alshakerM/Mente" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/alshakerM/Mente"
+          target="_blank"
+          rel="noreferrer"
+        >
           <GitHub className={styles.gitHubIcon} />
         </a>
         <a
@@ -17,7 +21,9 @@ export function Footer() {
           <Twitter className={styles.twitterIcon} />
         </a>
       </div>
-      <p className={styles.creatorName}>© 2022 Marwan Alshaker</p>
+      <p className={styles.creatorName}>
+        © {new Date().getFullYear()} Marwan Alshaker
+      </p>
     </div>
   );
 }

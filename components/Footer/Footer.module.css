@@ -10,13 +10,13 @@
   box-sizing: border-box;
 }
 .title {
-  padding: 0 70px;
+  padding: 0 5%;
   margin: 0;
   color: #c7ffea;
   font-size: 48px;
 }
 .iconsContainer {
-  padding: 40px 70px;
+  padding: 40px 5%;
   display: flex;
   gap: 14px;
   color: #c7ffea;
@@ -27,7 +27,7 @@
   width: 40px;
 }
 .creatorName {
-  padding: 0 70px;
+  padding: 0 5%;
   color: #c7ffea;
   font-size: 20px;
 }
