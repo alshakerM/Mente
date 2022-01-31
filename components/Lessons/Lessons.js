@@ -24,7 +24,7 @@ export function Lessons() {
   const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
 
   return (
-    <div className={styles.backgroundImgContainer}>
+    <>
       <div className={styles.contentContainer}>
         <h1 id="lessons" className={styles.title}>
           Lessons
@@ -96,6 +96,6 @@ export function Lessons() {
         </ul>
       </div>
       {lessonId && <AudioPlayer openAudio={openAudio} />}
-    </div>
+    </>
   );
 }
