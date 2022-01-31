@@ -52,6 +52,7 @@
 
 .playPauseButton {
   animation: appear 100ms ease-in forwards;
+  fill: #a85a5d;
   opacity: 0;
 }
 .speedButton {
