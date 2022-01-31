@@ -9,10 +9,11 @@
 }
 .filtersSection {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   font-weight: bold;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 .filterText {
   margin-right: 30px;
@@ -20,11 +21,11 @@
 }
 .filterOption {
   padding: 11px;
-  background: #0000009d;
+  background-color: rgb(19, 23, 25);
   border: 0;
   border-radius: 10px;
   color: #32a4a7;
-  font-size: 18px;
+  font-size: 15px;
   font-family: 'Libre Baskerville', serif;
 }
 .filterOption.isActive {
