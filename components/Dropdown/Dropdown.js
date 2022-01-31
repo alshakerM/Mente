@@ -9,7 +9,7 @@ export function Dropdown({ options, value, onChange, label }) {
     >
       <option value="">{label}</option>
       {options.map((option) => (
-        <option key={option} value={option} className={styles.dropdownOptions}>
+        <option key={option} value={option}>
           {option}
         </option>
       ))}
