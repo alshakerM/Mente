@@ -1,16 +1,45 @@
-.contentContainer {
-  padding-top: 52px;
-  min-height: 100%;
-  background: url(/_next/image?url=%2Fhome-img.png&w=1920&q=80);
+.background {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  scroll-behavior: smooth;
+  background: url(/buddha-bg2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  z-index: 0;
 }
-@media screen and (max-width: 720px) {
-  .contentContainer {
-    background-image: url(/_next/image?url=%2Fhome-img.png&w=640&q=80);
-  }
+.testDiv {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
 }
+.buddhaOutLine {
+  width: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.buddhaStroke {
+  fill: none;
+  stroke: #32a4a7;
+  transition: stroke-dashoffset 200ms ease-out;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-dasharray: 10 20;
+}
+
+.contentContainer {
+  padding-top: 52px;
+  min-height: 100vh;
+}
+
 .header {
   padding: 0 70px;
   display: flex;

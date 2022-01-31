@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 import cx from 'classnames';
 
 export function AudioPlayer({ openAudio }) {
-  const [pause, setPause] = React.useState(true);
+  const [pause, setPause] = React.useState(false);
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
   const [position, setPosition] = React.useState(0);
   const [progressPosition, setProgressPosition] = React.useState(0);
@@ -77,12 +77,13 @@ export function AudioPlayer({ openAudio }) {
       <div className={styles.audioTimers}>
         <p>
           {convertTime(
-            openAudio.duration * (lessonsProgress[openAudio.id] || 0)
+            openAudio.duration * (lessonsProgress[openAudio.id]?.progress || 0)
           )}
         </p>
         <p>
           {convertTime(
-            openAudio.duration * (1 - (lessonsProgress[openAudio.id] || 0))
+            openAudio.duration *
+              (1 - (lessonsProgress[openAudio.id]?.progress || 0))
           )}
         </p>
       </div>

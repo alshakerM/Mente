@@ -2,6 +2,7 @@ import React from 'react';
 import { Captions } from './Captions';
 import styles from './WhyMeditate.module.css';
 import cx from 'classnames';
+import { convertTime } from '../../utils';
 
 const playbackRateNumbers = [1, 1.25, 1.5, 1.75, 2];
 
@@ -45,12 +46,14 @@ export function WhyMeditate() {
           <clipPath id="outerCircle">
             <circle r="118" cx="125" cy="125"></circle>
           </clipPath>
-          <circle
-            r="122"
-            cx="125"
-            cy="125"
-            className={styles.progress}
-          ></circle>
+          {isPlayed && (
+            <circle
+              r="122"
+              cx="125"
+              cy="125"
+              className={styles.progress}
+            ></circle>
+          )}
           <circle
             r="118"
             cx="125"
@@ -58,42 +61,47 @@ export function WhyMeditate() {
             fill="white"
             id="textCircle"
           ></circle>
+          {isPlayed && (
+            <text
+              x="125"
+              textAnchor="middle"
+              y="30"
+              fill="#a85a5d"
+              fontSize="8px"
+              fontFamily="courier"
+            >
+              {convertTime(291.664 - time)}
+            </text>
+          )}
 
           {!pause ? (
             <>
-              <rect
+              <path
+                transform="translate(26)"
                 className={styles.playPauseButton}
-                fill="#a85a5d"
-                x="111.31"
-                y="161.64"
-                width="12.42"
-                height="42.42"
+                d="M94.4,200.9h-9.6c-0.7,0-1.2-0.5-1.2-1.2v-39c0-0.7,0.5-1.2,1.2-1.2h9.6c0.7,0,1.2,0.5,1.2,1.2v39
+	C95.6,200.3,95.1,200.9,94.4,200.9z"
               />
-              <rect
+
+              <path
                 className={styles.playPauseButton}
-                fill="#a85a5d"
-                x="130.43"
-                y="161.64"
-                width="12.42"
-                height="42.42"
+                transform="translate(45)"
+                d="M94.4,200.9h-9.6c-0.7,0-1.2-0.5-1.2-1.2v-39c0-0.7,0.5-1.2,1.2-1.2h9.6c0.7,0,1.2,0.5,1.2,1.2v39
+	C95.6,200.3,95.1,200.9,94.4,200.9z"
               />
             </>
           ) : (
-            <polygon
+            <path
               className={styles.playPauseButton}
-              transform={!isPlayed && 'translate(0 -50)'}
-              points="157.66 181.33 106.76 151.95 106.76 210.72 157.66 181.33"
-              fill="#a85a5d"
+              transform={!isPlayed ? 'translate(7 -55)' : 'translate(7 0)'}
+              d="M137.6,178.7l-29.2-18c-1.7-1-3.8,0.2-3.8,2.1v36c0,2,2.1,3.1,3.8,2.1l29.2-18
+	C139.2,182,139.2,179.7,137.6,178.7z"
             />
           )}
 
-          {isPlayed && (
-            <>
-              <Captions time={time} />
-            </>
-          )}
+          {isPlayed && <Captions time={time} />}
         </svg>
-        {isPlayed && !pause && (
+        {isPlayed && (
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -106,7 +114,7 @@ export function WhyMeditate() {
         )}
 
         <audio
-          preload
+          preload="true"
           onTimeUpdate={(e) => {
             const progress =
               e.currentTarget.currentTime / e.currentTarget.duration;

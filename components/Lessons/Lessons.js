@@ -1,7 +1,7 @@
 import styles from './Lessons.module.css';
 import AllLessons from '../../public/med-data.json';
 import React from 'react';
-import { Dropdown } from '../Dropdown/dropdown';
+import { Dropdown } from '../Dropdown/Dropdown';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useFilters } from '../../hooks';
@@ -24,7 +24,7 @@ export function Lessons() {
   const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
 
   return (
-    <div className={styles.backgroundImgContainer}>
+    <>
       <div className={styles.contentContainer}>
         <h1 id="lessons" className={styles.title}>
           Lessons
@@ -71,7 +71,7 @@ export function Lessons() {
                 lessonsProgress[lesson.id]
                   ? {
                       background: `linear-gradient(90deg, rgba(50, 164, 167, 0.5) ${
-                        lessonsProgress[lesson.id] * 100
+                        lessonsProgress[lesson.id].progress * 100
                       }%, #000000a5  0%)`,
                     }
                   : { background: '#0000009d' }
@@ -96,6 +96,6 @@ export function Lessons() {
         </ul>
       </div>
       {lessonId && <AudioPlayer openAudio={openAudio} />}
-    </div>
+    </>
   );
 }
