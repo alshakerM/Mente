@@ -1,7 +1,7 @@
 import styles from './Lessons.module.css';
 import AllLessons from '../../public/med-data.json';
 import React from 'react';
-import { Dropdown } from '../Dropdown/dropdown';
+import { Dropdown } from '../Dropdown/Dropdown';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useFilters } from '../../hooks';

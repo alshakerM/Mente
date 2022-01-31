@@ -117,7 +117,7 @@ export function WhyMeditate() {
         )}
 
         <audio
-          preload
+          preload="true"
           onTimeUpdate={(e) => {
             const progress =
               e.currentTarget.currentTime / e.currentTarget.duration;
