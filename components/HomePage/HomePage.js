@@ -6,9 +6,11 @@ import { Footer } from '../Footer/Footer';
 import { WhyMeditate } from '../WhyMeditate/WhyMeditate';
 import React from 'react';
 import { ContinueListening } from '../ContinueListening/ContinueListening';
+import { useRouter } from 'next/router';
 
 export function HomePage() {
   const [scrollY, setScrollY] = React.useState();
+  const router = useRouter();
   React.useEffect(() => {
     function handler() {
       setScrollY(window.scrollY / 10);
@@ -200,7 +202,8 @@ export function HomePage() {
         <Lessons />
         <WhyMeditate />
         <Footer />
-        <ContinueListening />
+        {console.log(router.asPath !== '/')}
+        <ContinueListening defaultVisible={router.asPath === '/'} />
       </div>
     </>
   );

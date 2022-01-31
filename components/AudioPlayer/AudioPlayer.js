@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 import cx from 'classnames';
 
 export function AudioPlayer({ openAudio }) {
-  const [pause, setPause] = React.useState(true);
+  const [pause, setPause] = React.useState(false);
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
   const [position, setPosition] = React.useState(0);
   const [progressPosition, setProgressPosition] = React.useState(0);

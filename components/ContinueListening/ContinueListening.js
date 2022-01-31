@@ -4,10 +4,11 @@ import { useLessonsProgress } from '../../hooks';
 import AllLessons from '../../public/med-data.json';
 import styles from './ContinueListening.module.css';
 import { PlayArrowRounded } from '@mui/icons-material';
+import { useRouter } from 'next/router';
 
-export function ContinueListening() {
+export function ContinueListening({ defaultVisible }) {
   const { lessonsProgress } = useLessonsProgress();
-  const [active, setActive] = React.useState(true);
+  const [active, setActive] = React.useState(defaultVisible);
 
   const progressSorted = Object.entries(lessonsProgress).sort((a, b) => {
     return new Date(b[1].time).getTime() - new Date(a[1].time).getTime();
@@ -26,6 +27,11 @@ export function ContinueListening() {
       setActive(false);
     }
   }, []);
+  React.useEffect(() => {
+    if (!defaultVisible) {
+      setActive(false);
+    }
+  }, [defaultVisible]);
 
   if (!active || !lastListenedID) {
     return null;
@@ -34,14 +40,14 @@ export function ContinueListening() {
   const lesson = AllLessons.find((l) => l.id === lastListenedID);
 
   return (
-    <div className={styles.contentContainer}>
-      <PlayArrowRounded className={styles.play}></PlayArrowRounded>
-      <Link shallow href={`?lessonId=${lesson?.id}`}>
-        <a className={styles.link}>
+    <Link shallow href={`?lessonId=${lesson?.id}`}>
+      <a className={styles.contentContainer}>
+        <PlayArrowRounded className={styles.play}></PlayArrowRounded>
+        <div className={styles.link}>
           <h1 className={styles.continueText}>Continue Listening</h1>
           <p className={styles.title}>{lesson.title}</p>
-        </a>
-      </Link>
-    </div>
+        </div>
+      </a>
+    </Link>
   );
 }
