@@ -7,7 +7,7 @@
   border-radius: 20px;
   padding: 20px;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 1em;
   cursor: pointer;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.9);
@@ -27,7 +27,7 @@
   }
 }
 .continueText {
-  font-size: 18px;
+  font-size: 1.3em;
   color: #32a4a7;
 }
 .play {
@@ -42,7 +42,7 @@
   z-index: 1;
 }
 .title {
-  font-size: 16px;
+  font-size: 1em;
   max-width: 400px;
   text-overflow: ellipsis;
   overflow: hidden;

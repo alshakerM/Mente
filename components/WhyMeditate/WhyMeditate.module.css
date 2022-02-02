@@ -2,20 +2,18 @@
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  padding: 2% 5%;
 }
 .title {
   margin: 0;
-  padding: 2% 4%;
 }
 .reason {
   max-width: 620px;
   height: 48px;
-  padding: 0 4%;
 }
 
 .playerContainer {
   position: relative;
-  margin-left: 3.5%;
   width: 70px;
   height: 70px;
   transform-origin: top;
@@ -30,7 +28,6 @@
   width: 600px;
   height: 600px;
   max-width: calc(100% - 20px);
-  margin-left: 2%;
 }
 
 @keyframes appear {
