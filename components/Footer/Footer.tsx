@@ -1,7 +1,7 @@
 import { GitHub, Twitter } from '@mui/icons-material';
 import styles from './Footer.module.css';
 
-export function Footer() {
+export const Footer: React.FC = () => {
   return (
     <div className={styles.contentContainer}>
       <h1 className={styles.title}>Mente</h1>
@@ -26,4 +26,4 @@ export function Footer() {
       </p>
     </div>
   );
-}
+};

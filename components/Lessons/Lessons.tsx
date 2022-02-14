@@ -19,7 +19,7 @@ export function Lessons() {
   const router = useRouter();
   const { lessonId } = router.query;
   const { lessons, filters, addFilter } = useFilters(AllLessons);
-  const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
+  const { lessonsProgress } = useLessonsProgress();
 
   const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
 
@@ -45,18 +45,18 @@ export function Lessons() {
             <Dropdown
               options={noDuplicatesGuide}
               label="Filter By Guide"
-              value={filters.byGuide.active && filters.byGuide.param}
+              value={filters.byGuide.active && filters.byGuide.params}
               onChange={(instructor) => {
-                addFilter('byGuide', instructor);
+                addFilter('byGuide', !!instructor, instructor);
               }}
             />
           </div>
           <div>
             <Dropdown
               options={distinctTypes}
-              value={filters.byType.active && filters.byType.param}
+              value={filters.byType.active && filters.byType.params}
               onChange={(type) => {
-                addFilter('byType', type);
+                addFilter('byType', !!type, type);
               }}
               label="Filter By Type"
             />

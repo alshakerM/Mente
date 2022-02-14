@@ -6,20 +6,22 @@ import { convertTime } from '../../utils';
 
 const playbackRateNumbers = [1, 1.25, 1.5, 1.75, 2];
 
-export function WhyMeditate() {
+export const WhyMeditate: React.FC = () => {
   const [pause, setPause] = React.useState(true);
   const [isPlayed, setIsPlayed] = React.useState(false);
   const [currentProgress, setCurrentProgress] = React.useState(0);
   const [speedIndex, setSpeedIndex] = React.useState(0);
   const [time, setTime] = React.useState(0);
-  const audioRef = React.useRef();
+  const audioRef = React.useRef<HTMLAudioElement>();
   React.useEffect(() => {
     if (pause) {
-      audioRef.current?.pause();
+      audioRef?.current?.pause();
     } else {
-      audioRef.current?.play();
+      audioRef?.current?.play();
     }
-    audioRef.current.playbackRate = playbackRateNumbers[speedIndex];
+    if (audioRef?.current) {
+      audioRef.current.playbackRate = playbackRateNumbers[speedIndex];
+    }
   }, [pause, speedIndex]);
 
   return (
@@ -41,7 +43,9 @@ export function WhyMeditate() {
         <svg
           viewBox="0 0 250 250"
           className={cx(styles.svg, { [styles.isPlayed]: isPlayed })}
-          style={{ '--currentProgress': currentProgress }}
+          style={
+            { '--currentProgress': currentProgress } as React.CSSProperties
+          }
         >
           <clipPath id="outerCircle">
             <circle r="118" cx="125" cy="125"></circle>
@@ -132,4 +136,4 @@ export function WhyMeditate() {
       </button>
     </div>
   );
-}
+};

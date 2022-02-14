@@ -1,14 +1,16 @@
 import React from 'react';
+import type { Lesson } from './types';
 
-function underFive(item) {
+function underFive(item: Lesson): boolean {
+  debugger;
   return item.duration / 60 < 5;
 }
 
-function byGuide(item, guide) {
+function byGuide(item: Lesson, guide: Lesson['instructor']) {
   return item.instructor === guide;
 }
 
-function byType(item, type) {
+function byType(item: Lesson, type: Lesson['type']) {
   return item.type === type;
 }
 
@@ -16,12 +18,28 @@ const filterFunctions = {
   byGuide,
   underFive,
   byType,
-};
+} as const;
 
-export function useFilters(lessons) {
-  const [filtersState, setFiltersState] = React.useState({
+type FilterState = {
+  underFive: {
+    active: boolean;
+    params?: undefined;
+  };
+  byGuide: {
+    params?: string;
+    active: boolean;
+  };
+  byType: {
+    params?: string;
+    active: boolean;
+  };
+};
+export function useFilters(lessons: Array<Lesson>) {
+  const [filtersState, setFiltersState] = React.useState<FilterState>({
     underFive: {
       active: false,
+      // this is just to have a homogeneous type
+      params: undefined,
     },
     byGuide: {
       params: undefined,
@@ -35,17 +53,27 @@ export function useFilters(lessons) {
 
   /**
    *
-   * @param {underFive|byGuide|byType} key the filter's function name (key)
-   * @param {string|number} param the predicate
+   * @param key the filter's function name (key)
+   * @param param the predicate
    */
-  function addFilter(key, param = -1) {
-    const newFiltersState = { ...filtersState };
-    newFiltersState[key] = {
-      // if param is -1, it means the user didn't pass a param (for filters without a param like <5)
-      // else of param is falsy, it means they want to deactivate the filter.
-      active: param === -1 ? true : !!param,
-      param,
-    };
+  function addFilter(
+    key: keyof typeof filterFunctions,
+    active: boolean,
+    params?: string
+  ) {
+    const newFiltersState: FilterState = { ...filtersState };
+
+    if (key === 'underFive') {
+      newFiltersState[key] = {
+        active,
+      };
+    } else {
+      newFiltersState[key] = {
+        active,
+        params,
+      };
+    }
+
     setFiltersState(newFiltersState);
   }
 
@@ -55,18 +83,19 @@ export function useFilters(lessons) {
     if (filter.active) {
       const filterFunction = filterFunctions[key];
       filteredLessons = filteredLessons.filter((item) =>
-        filterFunction(item, filter.param)
+        filterFunction(item, filter.params)
       );
     }
   }
-
   return { lessons: filteredLessons, filters: filtersState, addFilter };
 }
 
-const subscribers = new Set();
+const subscribers = new Set<React.Dispatch<React.SetStateAction<{}>>>();
 
 export function useLessonsProgress() {
-  const [lessonsProgress, setProgress] = React.useState({});
+  const [lessonsProgress, setProgress] = React.useState<
+    Record<Lesson['id'], { progress: number; time: string }>
+  >({});
 
   React.useEffect(() => {
     const storedProgress = localStorage.getItem('progressV2');
@@ -82,7 +111,7 @@ export function useLessonsProgress() {
     };
   }, [setProgress]);
 
-  function updateLessonProgress(lessonId, progress) {
+  function updateLessonProgress(lessonId: Lesson['id'], progress: number) {
     const newState = { ...lessonsProgress };
     newState[lessonId] = { progress, time: new Date().toISOString() };
     localStorage.setItem('progressV2', JSON.stringify(newState));
@@ -93,16 +122,4 @@ export function useLessonsProgress() {
     lessonsProgress,
     updateLessonProgress,
   };
-}
-
-/**
- *
- * @param {audio element} the audio element playbackRate.
- * @param {numbers} speed numbers e.g(1, 1.25, 1.5, 1.75, 2)
- * @param {index} which number
- * @returns how fast you want the audio element to be e.g(1, 1.25, 1.5, 1.75, 2)
- */
-
-export function playbackRate(audioPlaybackRate, numbers, index) {
-  return (audioPlaybackRate = numbers[index]);
 }

@@ -3,7 +3,7 @@ import subs from './subs.json';
 import styles from './Captions.module.css';
 import cx from 'classnames';
 
-function findSegments(ms) {
+function findSegments(ms: number) {
   const segments = subs.filter(
     (s) => s.startMs > 0 && s.startMs < ms && s.startMs + s.duration > ms
   );
@@ -20,7 +20,11 @@ function findSegments(ms) {
   });
 }
 
-export function Captions({ time }) {
+type CaptionsProps = {
+  time: number;
+};
+
+export function Captions({ time }: CaptionsProps) {
   const specialWords = [
     'reality',
     'confuse',
@@ -37,27 +41,28 @@ export function Captions({ time }) {
     'compulsively',
   ];
 
-  return findSegments(time * 1000).map((segment, index) => {
-    const allWords = segment.parts.reduce((words, word) => (words += word), '');
-    return (
-      <text
-        textAnchor="middle"
-        key={segment.key}
-        className={styles.phrase}
-        x="125"
-        y={80 + index * 15}
-      >
-        {segment.parts.map((word) => (
-          <tspan
-            key={word}
-            className={cx(styles.word, {
-              [styles.isSpecial]: specialWords.includes(word.trim()),
-            })}
-          >
-            {word}
-          </tspan>
-        ))}
-      </text>
-    );
-  });
+  return (
+    <>
+      {findSegments(time * 1000).map((segment, index) => {
+        <text
+          textAnchor="middle"
+          key={segment.key}
+          className={styles.phrase}
+          x="125"
+          y={80 + index * 15}
+        >
+          {segment.parts.map((word) => (
+            <tspan
+              key={word}
+              className={cx(styles.word, {
+                [styles.isSpecial]: specialWords.includes(word.trim()),
+              })}
+            >
+              {word}
+            </tspan>
+          ))}
+        </text>;
+      })}
+    </>
+  );
 }

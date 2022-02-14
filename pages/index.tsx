@@ -1,6 +1,6 @@
 import { HomePage } from '../components/HomePage/HomePage';
-import styles from '../styles/Home.module.css';
 
-export default function Home() {
+const Home: React.FC = () => {
   return <HomePage />;
-}
+};
+export default Home;

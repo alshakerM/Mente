@@ -4,9 +4,14 @@ import { useLessonsProgress } from '../../hooks';
 import AllLessons from '../../public/med-data.json';
 import styles from './ContinueListening.module.css';
 import { PlayArrowRounded } from '@mui/icons-material';
-import { useRouter } from 'next/router';
 
-export function ContinueListening({ defaultVisible }) {
+type ContinueListeningProps = {
+  defaultVisible: Boolean;
+};
+
+export const ContinueListening: React.FC<ContinueListeningProps> = ({
+  defaultVisible,
+}) => {
   const { lessonsProgress } = useLessonsProgress();
   const [active, setActive] = React.useState(defaultVisible);
 
@@ -50,4 +55,4 @@ export function ContinueListening({ defaultVisible }) {
       </a>
     </Link>
   );
-}
+};
