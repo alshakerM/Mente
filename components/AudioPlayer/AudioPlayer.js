@@ -41,6 +41,15 @@ export function AudioPlayer({ openAudio }) {
       setSeekActivated(false);
     }
   }, [progressPosition, seekActivated]);
+  React.useEffect(() => {
+    if (
+      lessonsProgress &&
+      !isNaN(lessonsProgress[openAudio.id]?.progress * openAudio.duration)
+    ) {
+      audioRef.current.currentTime =
+        lessonsProgress[openAudio.id]?.progress * openAudio.duration;
+    }
+  }, [audioRef.current]);
 
   const updateProgress = (currentTime) => {
     setProgressPosition(currentTime);
@@ -99,6 +108,10 @@ export function AudioPlayer({ openAudio }) {
         step={1}
         max={openAudio.duration}
         onChange={(_, value) => {
+          console.log(
+            lessonsProgress[openAudio.id].progress * openAudio.duration,
+            value
+          );
           setSeekActivated(true);
           setProgressPosition(value);
         }}
