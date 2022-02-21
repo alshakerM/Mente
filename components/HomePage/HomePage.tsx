@@ -8,8 +8,8 @@ import React from 'react';
 import { ContinueListening } from '../ContinueListening/ContinueListening';
 import { useRouter } from 'next/router';
 
-export function HomePage() {
-  const [scrollY, setScrollY] = React.useState();
+export const HomePage: React.FC = () => {
+  const [scrollY, setScrollY] = React.useState(0);
   const router = useRouter();
   React.useEffect(() => {
     function handler() {
@@ -168,4 +168,4 @@ export function HomePage() {
       </div>
     </>
   );
-}
+};

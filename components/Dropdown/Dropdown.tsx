@@ -1,6 +1,18 @@
 import styles from './Dropdown.module.css';
 
-export function Dropdown({ options, value, onChange, label }) {
+type DropdownProps = {
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+  label: string;
+};
+
+export const Dropdown: React.FunctionComponent<DropdownProps> = ({
+  options,
+  value,
+  onChange,
+  label,
+}) => {
   return (
     <select
       className={styles.dropdown}
@@ -15,4 +27,4 @@ export function Dropdown({ options, value, onChange, label }) {
       ))}
     </select>
   );
-}
+};
