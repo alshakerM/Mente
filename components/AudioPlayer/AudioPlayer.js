@@ -77,92 +77,97 @@ export function AudioPlayer({ openAudio }) {
         <p className={styles.SongName}>{openAudio.title}</p>
         <p className={styles.SonAuthor}>{openAudio.instructor}</p>
       </div>
-      <div className={styles.playIconContainer}>
-        <button className={styles.playButton} onClick={() => setPause(!pause)}>
-          {pause ? (
-            <PlayArrowRounded className={styles.playIcon} fontSize="large" />
-          ) : (
-            <Pause
-              className={cx(styles.playIcon, { [styles.isPaused]: true })}
-            />
-          )}
-        </button>
-      </div>
-      <div className={styles.audioTimers}>
-        <p>
-          {convertTime(
-            openAudio.duration * (lessonsProgress[openAudio.id]?.progress || 0)
-          )}
-        </p>
-        <p>
-          {convertTime(
-            openAudio.duration *
-              (1 - (lessonsProgress[openAudio.id]?.progress || 0))
-          )}
-        </p>
-      </div>
-      <Slider
-        sx={{ height: 15 }}
-        value={progressPosition}
-        min={0}
-        step={1}
-        max={openAudio.duration}
-        onChange={(_, value) => {
-          console.log(
-            lessonsProgress[openAudio.id].progress * openAudio.duration,
-            value
-          );
-          setSeekActivated(true);
-          setProgressPosition(value);
-        }}
-      />
-      <div className={styles.AudioSection}>
-        <audio
-          src={openAudio.mp3}
-          ref={audioRef}
-          onTimeUpdate={(event) => {
-            updateProgress(event.currentTarget.currentTime);
+      <div className={styles.footer}>
+        <div className={styles.playIconContainer}>
+          <button
+            className={styles.playButton}
+            onClick={() => setPause(!pause)}
+          >
+            {pause ? (
+              <PlayArrowRounded className={styles.playIcon} fontSize="large" />
+            ) : (
+              <Pause
+                className={cx(styles.playIcon, { [styles.isPaused]: true })}
+              />
+            )}
+          </button>
+        </div>
+        <div className={styles.audioTimers}>
+          <p>
+            {convertTime(
+              openAudio.duration *
+                (lessonsProgress[openAudio.id]?.progress || 0)
+            )}
+          </p>
+          <p>
+            {convertTime(
+              openAudio.duration *
+                (1 - (lessonsProgress[openAudio.id]?.progress || 0))
+            )}
+          </p>
+        </div>
+        <Slider
+          sx={{ height: 15 }}
+          value={progressPosition}
+          min={0}
+          step={1}
+          max={openAudio.duration}
+          onChange={(_, value) => {
+            setSeekActivated(true);
+            setProgressPosition(value);
           }}
-          muted={false}
         />
-      </div>
-      <div className={styles.volumeContainer}>
-        {position < 50 ? (
-          position === 0 ? (
-            <button
-              className={styles.iconButton}
-              onClick={() =>
-                setPosition(Number.parseFloat(localStorage.getItem('volume')))
-              }
-            >
-              <VolumeOff />
-            </button>
+        <div className={styles.AudioSection}>
+          <audio
+            src={openAudio.mp3}
+            ref={audioRef}
+            onTimeUpdate={(event) => {
+              updateProgress(event.currentTarget.currentTime);
+            }}
+            muted={false}
+          />
+        </div>
+        <div className={styles.volumeContainer}>
+          {position < 50 ? (
+            position === 0 ? (
+              <button
+                className={styles.iconButton}
+                onClick={() =>
+                  setPosition(Number.parseFloat(localStorage.getItem('volume')))
+                }
+              >
+                <VolumeOff />
+              </button>
+            ) : (
+              <button
+                onClick={() => setPosition(0)}
+                className={styles.iconButton}
+              >
+                <VolumeDown />
+              </button>
+            )
           ) : (
             <button
               onClick={() => setPosition(0)}
               className={styles.iconButton}
             >
-              <VolumeDown />
+              <VolumeUp />
             </button>
-          )
-        ) : (
-          <button onClick={() => setPosition(0)} className={styles.iconButton}>
-            <VolumeUp />
-          </button>
-        )}
+          )}
 
-        <Slider
-          style={{ width: 200, marginLeft: 15 }}
-          size="small"
-          value={position}
-          min={0}
-          step={1}
-          onChange={(_, value) => {
-            setPosition(value);
-            localStorage.setItem('volume', value);
-            audioRef.current.volume = value / 100;
-          }}
-        />
+          <Slider
+            style={{ width: 200, marginLeft: 15 }}
+            size="small"
+            value={position}
+            min={0}
+            step={1}
+            onChange={(_, value) => {
+              setPosition(value);
+              localStorage.setItem('volume', value);
+              audioRef.current.volume = value / 100;
+            }}
+          />
+        </div>
       </div>
     </div>
   );

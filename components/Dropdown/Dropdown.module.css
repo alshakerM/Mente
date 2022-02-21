@@ -1,5 +1,5 @@
 .dropdown {
-  font-size: 15px;
+  font-size: 1em;
   background-color: rgb(19, 23, 25);
   color: #fff;
   border-radius: 10px;
@@ -12,6 +12,6 @@
 
 @media screen and (max-width: 735px) {
   .dropdown {
-    font-size: 12px;
+    font-size: 0.85em;
   }
 }

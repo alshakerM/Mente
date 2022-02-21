@@ -26,7 +26,7 @@
 }
 
 .contentContainer {
-  padding-top: 52px;
+  padding-top: 2%;
   min-height: 100vh;
 }
 
@@ -41,13 +41,13 @@
   color: #c7ffea;
   margin: 0;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 2.78em;
   flex: 1;
 }
 .appInfo {
   color: #c7ffea;
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 1.3em;
 }
 .body {
   margin-top: 79px;
@@ -55,15 +55,24 @@
   flex-direction: column;
   gap: 15px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 1.3em;
   position: relative;
   padding: 0 5%;
+  align-items: flex-start;
+}
+.lessonsLink,
+.reasonLink,
+.codeLink,
+.creditsLink {
+  flex: 0 0;
+  transition: padding 100ms ease-out;
 }
 .lessonsLink:hover,
 .reasonLink:hover,
 .codeLink:hover,
 .creditsLink:hover {
   color: #32a4a7;
+  padding-left: 5px;
 }
 .footer {
   position: absolute;
@@ -83,6 +92,9 @@
   }
 }
 @media screen and (max-width: 735px) {
+  .title {
+    font-size: 1.78em;
+  }
   .buddha {
     transform: translateX(-70vw);
   }
@@ -92,6 +104,6 @@
     left: 30px;
   }
   .buddhaStroke {
-    stroke-width: 7px;
+    stroke-width: 3px;
   }
 }
