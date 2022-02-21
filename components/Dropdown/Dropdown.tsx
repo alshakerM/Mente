@@ -3,9 +3,6 @@ import styles from './Dropdown.module.css';
 type DropdownProps = {
   options: string[];
   value: string;
-  /**
-   * Give me this function if you want to listen to change
-   */
   onChange: (value: string) => void;
   label: string;
 };

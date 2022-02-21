@@ -2,7 +2,6 @@ import React from 'react';
 import type { Lesson } from './types';
 
 function underFive(item: Lesson): boolean {
-  debugger;
   return item.duration / 60 < 5;
 }
 
