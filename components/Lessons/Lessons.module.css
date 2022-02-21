@@ -1,11 +1,13 @@
 .contentContainer {
   position: relative;
   padding-left: 5%;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .title {
   padding-top: 51px;
-  font-size: 32px;
+  font-size: 2.3em;
   margin: 0;
+  margin-bottom: 20px;
 }
 .filtersSection {
   display: flex;
@@ -25,7 +27,7 @@
   border: 0;
   border-radius: 10px;
   color: #32a4a7;
-  font-size: 15px;
+  font-size: 1em;
   font-family: 'Libre Baskerville', serif;
 }
 .filterOption.isActive {
@@ -57,8 +59,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
-  font-size: 18px;
+  font-size: 1.3em;
+}
+.authorAndAlbum {
+  margin-top: 20px;
 }
 .author,
 .album {
@@ -66,14 +70,14 @@
 }
 @media screen and (max-width: 735px) {
   .audioStatusContainer {
-    font-size: 15px;
+    font-size: 1.3em;
     height: unset;
     border-radius: 10px;
     margin-right: 15px;
   }
   .authorAndAlbum,
   .songInfo {
-    font-size: 15px;
+    font-size: 1.3em;
   }
   .audioSection {
     margin-top: 10px;
@@ -83,6 +87,6 @@
     margin-right: -100px;
   }
   .filterOption {
-    font-size: 12px;
+    font-size: 1.3em;
   }
 }

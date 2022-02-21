@@ -47,6 +47,15 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
       setSeekActivated(false);
     }
   }, [progressPosition, seekActivated]);
+  React.useEffect(() => {
+    if (
+      lessonsProgress &&
+      !isNaN(lessonsProgress[openAudio.id]?.progress * openAudio.duration)
+    ) {
+      audioRef.current.currentTime =
+        lessonsProgress[openAudio.id]?.progress * openAudio.duration;
+    }
+  }, [audioRef.current]);
 
   const updateProgress = (currentTime) => {
     setProgressPosition(currentTime);
@@ -116,48 +125,60 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
           onTimeUpdate={(event) => {
             updateProgress(event.currentTarget.currentTime);
           }}
-          muted={false}
         />
-      </div>
-      <div className={styles.volumeContainer}>
-        {position < 50 ? (
-          position === 0 ? (
-            <button
-              className={styles.iconButton}
-              onClick={() =>
-                setPosition(Number.parseFloat(localStorage.getItem('volume')))
-              }
-            >
-              <VolumeOff />
-            </button>
+        <div className={styles.AudioSection}>
+          <audio
+            src={openAudio.mp3}
+            ref={audioRef}
+            onTimeUpdate={(event) => {
+              updateProgress(event.currentTarget.currentTime);
+            }}
+            muted={false}
+          />
+        </div>
+        <div className={styles.volumeContainer}>
+          {position < 50 ? (
+            position === 0 ? (
+              <button
+                className={styles.iconButton}
+                onClick={() =>
+                  setPosition(Number.parseFloat(localStorage.getItem('volume')))
+                }
+              >
+                <VolumeOff />
+              </button>
+            ) : (
+              <button
+                onClick={() => setPosition(0)}
+                className={styles.iconButton}
+              >
+                <VolumeDown />
+              </button>
+            )
           ) : (
             <button
               onClick={() => setPosition(0)}
               className={styles.iconButton}
             >
-              <VolumeDown />
+              <VolumeUp />
             </button>
-          )
-        ) : (
-          <button onClick={() => setPosition(0)} className={styles.iconButton}>
-            <VolumeUp />
-          </button>
-        )}
+          )}
 
-        <Slider
-          style={{ width: 200, marginLeft: 15 }}
-          size="small"
-          value={position}
-          min={0}
-          step={1}
-          onChange={(_, value) => {
-            if (typeof value === 'number') {
-              setPosition(value);
-              localStorage.setItem('volume', value.toString());
-              audioRef.current.volume = value / 100;
-            }
-          }}
-        />
+          <Slider
+            style={{ width: 200, marginLeft: 15 }}
+            size="small"
+            value={position}
+            min={0}
+            step={1}
+            onChange={(_, value) => {
+              if (typeof value === 'number') {
+                setPosition(value);
+                localStorage.setItem('volume', value.toString());
+                audioRef.current.volume = value / 100;
+              }
+            }}
+          />
+        </div>
       </div>
     </div>
   );

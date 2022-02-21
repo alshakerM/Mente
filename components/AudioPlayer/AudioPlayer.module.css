@@ -13,6 +13,8 @@
   animation: enter 200ms ease-out forwards;
   transform: perspective(200px) rotateX(30deg) translateY(50%);
   transform-origin: center 80%;
+  display: flex;
+  flex-direction: column;
 }
 @keyframes enter {
   to {
@@ -25,28 +27,37 @@
 }
 .title {
   color: #32a4a7;
-  font-size: 25px;
+  font-size: 1.78em;
   flex: 1;
 }
 .ClearIcon {
   fill: #707070;
+  cursor: pointer;
+}
+.ClearIcon:hover {
+  fill: #32a4a7;
 }
 .Body {
   text-align: center;
 }
+.footer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .SongName {
-  font-size: 40px;
+  font-size: 2.8em;
 }
 .SonAuthor {
   color: #32a4a7;
-  font-size: 25px;
-  margin-bottom: calc(100vh - 32%);
+  font-size: 1.78em;
 }
 .AudioSection {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 2.8em;
   gap: 30px;
 }
 .playButton {
@@ -59,6 +70,7 @@
   height: 100px;
   width: 100px;
   color: #102914;
+  cursor: pointer;
 }
 .progressBar {
   height: 14px;
@@ -77,6 +89,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 .audioTimers {
   display: flex;
@@ -89,6 +102,7 @@
 .playIconContainer {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 .playButton {
   border: 0;
@@ -111,9 +125,6 @@
 }
 @media screen and (max-width: 735px) {
   .SongName {
-    font-size: 20px;
-  }
-  .SonAuthor {
-    margin-bottom: 60%;
+    font-size: 1.3em;
   }
 }

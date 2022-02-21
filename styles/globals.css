@@ -9,6 +9,7 @@ body {
   font-weight: 400;
   scroll-behavior: smooth;
   background-color: #0a0300;
+  font-size: 16px;
 }
 
 a {
@@ -34,4 +35,9 @@ a {
 .MuiSlider-thumbColorPrimary:active,
 .MuiSlider-thumbColorPrimary:hover {
   box-shadow: none !important;
+}
+@media screen and (max-width: 735px) {
+  body {
+    font-size: 10px;
+  }
 }
