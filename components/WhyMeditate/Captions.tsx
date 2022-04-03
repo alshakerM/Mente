@@ -44,24 +44,26 @@ export function Captions({ time }: CaptionsProps) {
   return (
     <>
       {findSegments(time * 1000).map((segment, index) => {
-        <text
-          textAnchor="middle"
-          key={segment.key}
-          className={styles.phrase}
-          x="125"
-          y={80 + index * 15}
-        >
-          {segment.parts.map((word) => (
-            <tspan
-              key={word}
-              className={cx(styles.word, {
-                [styles.isSpecial]: specialWords.includes(word.trim()),
-              })}
-            >
-              {word}
-            </tspan>
-          ))}
-        </text>;
+        return (
+          <text
+            textAnchor="middle"
+            key={segment.key}
+            className={styles.phrase}
+            x="125"
+            y={80 + index * 15}
+          >
+            {segment.parts.map((word) => (
+              <tspan
+                key={word}
+                className={cx(styles.word, {
+                  [styles.isSpecial]: specialWords.includes(word.trim()),
+                })}
+              >
+                {word}
+              </tspan>
+            ))}
+          </text>
+        );
       })}
     </>
   );

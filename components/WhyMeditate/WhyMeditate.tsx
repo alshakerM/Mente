@@ -102,7 +102,6 @@ export const WhyMeditate: React.FC = () => {
 	C139.2,182,139.2,179.7,137.6,178.7z"
             />
           )}
-
           {isPlayed && <Captions time={time} />}
         </svg>
         {isPlayed && (
