@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/logo512x512.png" />
+  <img src="./public/logo512x512.png" height="350px" width="350px"/>
 </p>
 
 # [Mente](http://mente.vercel.app/)
