@@ -23,7 +23,6 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
   openAudio,
   duration,
 }) => {
-  if (!openAudio) return null;
   const [pause, setPause] = React.useState(false);
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
   const [position, setPosition] = React.useState(0);
@@ -32,10 +31,11 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
 
   const audioRef = React.useRef<HTMLAudioElement>();
   const router = useRouter();
+
   React.useEffect(() => {
     const volume = Number.parseFloat(localStorage.getItem('volume') || '50');
     setPosition(volume);
-    audioRef.current.volume = volume / 100;
+    if (audioRef.current) audioRef.current.volume = volume / 100;
   }, []);
   React.useEffect(() => {
     if (pause) {
@@ -53,7 +53,7 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
   React.useEffect(() => {
     if (
       lessonsProgress &&
-      !isNaN(lessonsProgress[openAudio.id]?.progress * duration)
+      !isNaN(lessonsProgress[openAudio?.id]?.progress * duration)
     ) {
       audioRef.current.currentTime =
         lessonsProgress[openAudio.id]?.progress * duration;
@@ -64,7 +64,7 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
     setProgressPosition(currentTime);
     updateLessonProgress(openAudio.id, currentTime / duration);
   };
-
+  if (!openAudio) return null;
   return (
     <div
       className={styles.Content}
