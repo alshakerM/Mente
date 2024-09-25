@@ -34,6 +34,7 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
     setPosition(volume);
     audioRef.current.volume = volume / 100;
   }, []);
+
   React.useEffect(() => {
     if (pause) {
       audioRef.current?.pause();
