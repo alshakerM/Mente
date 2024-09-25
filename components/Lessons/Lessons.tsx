@@ -83,7 +83,10 @@ export function Lessons() {
                 <audio
                   src={lesson.audioLink}
                   onLoadedMetadata={(e) =>
-                    handleMetadataLoaded(lesson.id, e.target.duration)
+                    handleMetadataLoaded(
+                      lesson.id,
+                      (e.target as HTMLAudioElement).duration
+                    )
                   }
                 />
               </div>
