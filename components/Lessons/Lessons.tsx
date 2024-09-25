@@ -1,64 +1,52 @@
 import styles from './Lessons.module.css';
-import AllLessons from '../../public/med-data.json';
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Dropdown } from '../Dropdown/Dropdown';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useFilters } from '../../hooks';
-import cx from 'classnames';
+import { getAllData, useFilters } from '../../hooks';
+
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer';
 import { useLessonsProgress } from '../../hooks';
 import { convertTime } from '../../utils';
 
-const guides = AllLessons.map((data) => data.instructor);
-const noDuplicatesGuide = Array.from(new Set(guides));
-const types = AllLessons.map((data) => data.type);
-const distinctTypes = Array.from(new Set(types));
+const handleDuration = () => {
+  const [durations, setDurations] = useState({});
+  const handleMetadataLoaded = (lessonId, duration) => {
+    setDurations((prevDurations) => ({
+      ...prevDurations,
+      [lessonId]: duration,
+    }));
+  };
+  return { durations, handleMetadataLoaded };
+};
 
 export function Lessons() {
   const router = useRouter();
   const { lessonId } = router.query;
-  const { lessons, filters, addFilter } = useFilters(AllLessons);
   const { lessonsProgress } = useLessonsProgress();
+  const { chapters } = getAllData();
+  const { lessons, filters, addFilter } = useFilters(chapters);
 
-  const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
-
+  const openAudio =
+    lessonId && lessons.find((med) => med.id === parseInt(lessonId as string));
+  const guides = chapters.map((data) => data.nameSimple);
+  const { durations, handleMetadataLoaded } = handleDuration();
   return (
     <>
       <div className={styles.contentContainer}>
         <h1 id="lessons" className={styles.title}>
-          Lessons
+          Surahs
         </h1>
         <div className={styles.filtersSection}>
-          <p className={styles.filterText}>Filters</p>
-          <button
-            onClick={() => addFilter('underFive', !filters.underFive.active)}
-            className={cx(styles.filterOption, {
-              [styles.isActive]: filters.underFive.active,
-            })}
-          >
-            &lt; 5 minutes
-          </button>
-          <button className={styles.filterOption}>Already Listened</button>
-          <button className={styles.filterOption}>Haven’t Listened</button>
           <div>
             <Dropdown
-              options={noDuplicatesGuide}
-              label="Filter By Guide"
+              options={guides}
+              label="Filter By Name"
               value={filters.byGuide.active && filters.byGuide.params}
               onChange={(instructor) => {
                 addFilter('byGuide', !!instructor, instructor);
               }}
-            />
-          </div>
-          <div>
-            <Dropdown
-              options={distinctTypes}
-              value={filters.byType.active && filters.byType.params}
-              onChange={(type) => {
-                addFilter('byType', !!type, type);
-              }}
-              label="Filter By Type"
             />
           </div>
         </div>
@@ -66,7 +54,7 @@ export function Lessons() {
           {lessons.map((lesson) => (
             <li
               className={styles.audioStatusContainer}
-              key={lesson.mp3}
+              key={lesson.id}
               style={
                 lessonsProgress[lesson.id]
                   ? {
@@ -80,22 +68,35 @@ export function Lessons() {
               <Link shallow href={`?lessonId=${lesson.id}`}>
                 <a>
                   <div className={styles.songInfo}>
-                    <p className={styles.songName}>{lesson.title}</p>
+                    <p className={styles.songName}>{lesson.nameSimple}</p>
                     <p className={styles.timer}>
-                      {convertTime(lesson.duration)}
+                      {convertTime(durations[lesson.id])}
                     </p>
                   </div>
                   <div className={styles.authorAndAlbum}>
-                    <p className={styles.author}>{lesson.instructor}</p>
-                    <p className={styles.album}>{lesson.type}</p>
+                    <p className={styles.author}>{lesson.nameSimple}</p>
+                    <p className={styles.album}>{lesson.nameSimple}</p>
                   </div>
                 </a>
               </Link>
+              <div hidden>
+                <audio
+                  src={lesson.audioLink}
+                  onLoadedMetadata={(e) =>
+                    handleMetadataLoaded(lesson.id, e.target.duration)
+                  }
+                />
+              </div>
             </li>
           ))}
         </ul>
       </div>
-      {lessonId && <AudioPlayer openAudio={openAudio} />}
+      {lessonId && (
+        <AudioPlayer
+          openAudio={openAudio}
+          duration={durations[lessonId as string]}
+        />
+      )}
     </>
   );
 }

@@ -8,6 +8,13 @@
   z-index: 0;
 }
 
+.times {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+  font-size: 2.5em;
+}
+
 .buddhaOutLine {
   width: 100%;
   min-height: 100vh;

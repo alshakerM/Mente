@@ -1,10 +1,8 @@
 .contentContainer {
-  position: absolute;
-  bottom: 5%;
   width: 500px;
-  max-width: 100%;
+  max-width: 98%;
   left: 2%;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 20px;
   box-sizing: border-box;
   font-size: 1em;
@@ -15,6 +13,7 @@
   animation: 1s linear 5s forwards running hideItem,
     1s linear 0s forwards running showItem;
   display: flex;
+  margin: 0 auto;
 }
 @keyframes hideItem {
   to {

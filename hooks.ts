@@ -1,50 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { quran } from '@quranjs/api';
 import type { Lesson } from './types';
 
-function underFive(item: Lesson): boolean {
-  return item.duration / 60 < 5;
-}
-
-function byGuide(item: Lesson, guide: Lesson['instructor']) {
-  return item.instructor === guide;
-}
-
-function byType(item: Lesson, type: Lesson['type']) {
-  return item.type === type;
+function byGuide(item: Lesson, name: Lesson['nameSimple']) {
+  return item.nameSimple === name;
 }
 
 const filterFunctions = {
   byGuide,
-  underFive,
-  byType,
 } as const;
 
 type FilterState = {
-  underFive: {
-    active: boolean;
-    params?: undefined;
-  };
   byGuide: {
     params?: string;
     active: boolean;
   };
-  byType: {
-    params?: string;
-    active: boolean;
-  };
 };
+export function getAllData() {
+  const [chapters, setChapters] = useState([]);
+  const [audio, setAudio] = useState([]);
+
+  useEffect(() => {
+    quran.v4.chapters.findAll().then(setChapters);
+    quran.v4.audio.findAllChapterRecitations('3').then(setAudio);
+  }, []);
+  chapters.forEach((chapter) => {
+    const audioData = audio.find((clip) => clip.chapterId === chapter.id);
+    chapter['audioLink'] = audioData?.audioUrl;
+  });
+
+  return { chapters };
+}
 export function useFilters(lessons: Array<Lesson>) {
   const [filtersState, setFiltersState] = React.useState<FilterState>({
-    underFive: {
-      active: false,
-      // this is just to have a homogeneous type
-      params: undefined,
-    },
     byGuide: {
-      params: undefined,
-      active: false,
-    },
-    byType: {
       params: undefined,
       active: false,
     },
@@ -62,16 +51,10 @@ export function useFilters(lessons: Array<Lesson>) {
   ) {
     const newFiltersState: FilterState = { ...filtersState };
 
-    if (key === 'underFive') {
-      newFiltersState[key] = {
-        active,
-      };
-    } else {
-      newFiltersState[key] = {
-        active,
-        params,
-      };
-    }
+    newFiltersState[key] = {
+      active,
+      params,
+    };
 
     setFiltersState(newFiltersState);
   }
@@ -121,4 +104,40 @@ export function useLessonsProgress() {
     lessonsProgress,
     updateLessonProgress,
   };
+}
+
+export function getPrayTime() {
+  const [prayData, setData] = useState(null);
+  const [currentTime, setCurrentTime] = useState('');
+  useEffect(() => {
+    fetch('/api/prayerTimes')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching the data:', error);
+      });
+    const updateTime = () => {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      });
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+
+    const timer = setInterval(updateTime, 60000);
+
+    return () => clearInterval(timer);
+  }, []);
+  return { prayData, currentTime };
 }

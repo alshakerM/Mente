@@ -17,10 +17,13 @@ import type { Lesson } from '../../types';
 
 type AudioPlayerProps = {
   openAudio: Lesson;
+  duration: number;
 };
 export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
   openAudio,
+  duration,
 }) => {
+  if (!openAudio) return null;
   const [pause, setPause] = React.useState(false);
   const { lessonsProgress, updateLessonProgress } = useLessonsProgress();
   const [position, setPosition] = React.useState(0);
@@ -50,16 +53,16 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
   React.useEffect(() => {
     if (
       lessonsProgress &&
-      !isNaN(lessonsProgress[openAudio.id]?.progress * openAudio.duration)
+      !isNaN(lessonsProgress[openAudio.id]?.progress * duration)
     ) {
       audioRef.current.currentTime =
-        lessonsProgress[openAudio.id]?.progress * openAudio.duration;
+        lessonsProgress[openAudio.id]?.progress * duration;
     }
   }, [audioRef.current]);
 
   const updateProgress = (currentTime) => {
     setProgressPosition(currentTime);
-    updateLessonProgress(openAudio.id, currentTime / openAudio.duration);
+    updateLessonProgress(openAudio.id, currentTime / duration);
   };
 
   return (
@@ -80,8 +83,7 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
         />
       </div>
       <div className={styles.Body}>
-        <p className={styles.SongName}>{openAudio.title}</p>
-        <p className={styles.SonAuthor}>{openAudio.instructor}</p>
+        <p className={styles.SongName}>{openAudio.nameSimple}</p>
       </div>
       <div className={styles.playIconContainer}>
         <button className={styles.playButton} onClick={() => setPause(!pause)}>
@@ -97,13 +99,12 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
       <div className={styles.audioTimers}>
         <p>
           {convertTime(
-            openAudio.duration * (lessonsProgress[openAudio.id]?.progress || 0)
+            duration * (lessonsProgress[openAudio.id]?.progress || 0)
           )}
         </p>
         <p>
           {convertTime(
-            openAudio.duration *
-              (1 - (lessonsProgress[openAudio.id]?.progress || 0))
+            duration * (1 - (lessonsProgress[openAudio.id]?.progress || 0))
           )}
         </p>
       </div>
@@ -112,7 +113,7 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
         value={progressPosition}
         min={0}
         step={1}
-        max={openAudio.duration}
+        max={duration}
         onChange={(_, value) => {
           setSeekActivated(true);
           setProgressPosition(value as number);
@@ -120,7 +121,7 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
       />
       <div className={styles.AudioSection}>
         <audio
-          src={openAudio.mp3}
+          src={openAudio.audioLink}
           ref={audioRef}
           onTimeUpdate={(event) => {
             updateProgress(event.currentTarget.currentTime);
@@ -128,7 +129,7 @@ export const AudioPlayer: React.FunctionComponent<AudioPlayerProps> = ({
         />
         <div className={styles.AudioSection}>
           <audio
-            src={openAudio.mp3}
+            src={openAudio.audioLink}
             ref={audioRef}
             onTimeUpdate={(event) => {
               updateProgress(event.currentTarget.currentTime);

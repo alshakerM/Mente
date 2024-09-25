@@ -1,7 +1,7 @@
 {
-  "short_name": "Mente",
-  "name": "Mente mediation app",
-  "description": "mediation app",
+  "short_name": "Samar's prayer",
+  "name": "Samar's prayer reminder",
+  "description": "prayer reminder",
   "icons": [
     {
       "src": "/logo192x192.png",

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { useLessonsProgress } from '../../hooks';
-import AllLessons from '../../public/med-data.json';
+import { getAllData, useLessonsProgress } from '../../hooks';
 import styles from './ContinueListening.module.css';
 import { PlayArrowRounded } from '@mui/icons-material';
 
@@ -12,6 +11,7 @@ type ContinueListeningProps = {
 export const ContinueListening: React.FC<ContinueListeningProps> = ({
   defaultVisible,
 }) => {
+  const { chapters } = getAllData();
   const { lessonsProgress } = useLessonsProgress();
   const [active, setActive] = React.useState(defaultVisible);
 
@@ -42,7 +42,7 @@ export const ContinueListening: React.FC<ContinueListeningProps> = ({
     return null;
   }
 
-  const lesson = AllLessons.find((l) => l.id === lastListenedID);
+  const lesson = chapters.find((l) => l.id === parseInt(lastListenedID));
 
   return (
     <Link shallow href={`?lessonId=${lesson?.id}`}>
@@ -50,7 +50,7 @@ export const ContinueListening: React.FC<ContinueListeningProps> = ({
         <PlayArrowRounded className={styles.play}></PlayArrowRounded>
         <div className={styles.link}>
           <h1 className={styles.continueText}>Continue Listening</h1>
-          <p className={styles.title}>{lesson.title}</p>
+          <p className={styles.title}>{lesson?.nameSimple}</p>
         </div>
       </a>
     </Link>
