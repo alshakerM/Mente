@@ -10,7 +10,7 @@ import { AudioPlayer } from '../AudioPlayer/AudioPlayer';
 import { useLessonsProgress } from '../../hooks';
 import { convertTime } from '../../utils';
 
-const usehandleDuration = () => {
+const useHandleDuration = () => {
   const [durations, setDurations] = useState({});
   const handleMetadataLoaded = (lessonId, duration) => {
     setDurations((prevDurations) => ({
@@ -31,7 +31,7 @@ export function Lessons() {
   const openAudio =
     lessonId && lessons.find((med) => med.id === parseInt(lessonId as string));
   const guides = chapters.map((data) => data.nameSimple);
-  const { durations, handleMetadataLoaded } = usehandleDuration();
+  const { durations, handleMetadataLoaded } = useHandleDuration();
   return (
     <>
       <div className={styles.contentContainer}>
