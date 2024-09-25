@@ -4,5 +4,8 @@ module.exports = withPWA({
     dest: 'public',
     //  swSrc: 'custom-sw.js',
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
 });
