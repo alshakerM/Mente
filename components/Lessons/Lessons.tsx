@@ -30,7 +30,6 @@ export function Lessons() {
           Surahs
         </h1>
         <div className={styles.filtersSection}>
-          <p className={styles.filterText}>Filters</p>
           <button
             onClick={() => addFilter('underFive', !filters.underFive.active)}
             className={cx(styles.filterOption, {
@@ -39,26 +38,22 @@ export function Lessons() {
           >
             &lt; 5 minutes
           </button>
-          <div>
-            <Dropdown
-              options={noDuplicatesGuide}
-              label="Filter By Guide"
-              value={filters.byGuide.active && filters.byGuide.params}
-              onChange={(instructor) => {
-                addFilter('byGuide', !!instructor, instructor);
-              }}
-            />
-          </div>
-          <div>
-            <Dropdown
-              options={distinctTypes}
-              value={filters.byType.active && filters.byType.params}
-              onChange={(type) => {
-                addFilter('byType', !!type, type);
-              }}
-              label="Filter By Type"
-            />
-          </div>
+          <Dropdown
+            options={noDuplicatesGuide}
+            label="Filter By Guide"
+            value={filters.byGuide.active && filters.byGuide.params}
+            onChange={(instructor) => {
+              addFilter('byGuide', !!instructor, instructor);
+            }}
+          />
+          <Dropdown
+            options={distinctTypes}
+            value={filters.byType.active && filters.byType.params}
+            onChange={(type) => {
+              addFilter('byType', !!type, type);
+            }}
+            label="Filter By Type"
+          />
         </div>
         <ul className={styles.audioSection}>
           {lessons.map((lesson) => (

@@ -22,10 +22,10 @@
   color: #32a4a7;
 }
 .filterOption {
-  padding: 11px;
+  padding: 10px;
   background-color: rgb(19, 23, 25);
   border: 0;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #32a4a7;
   font-size: 1em;
   font-family: 'Libre Baskerville', serif;
@@ -70,21 +70,19 @@
 }
 @media screen and (max-width: 735px) {
   .audioStatusContainer {
-    font-size: 1.3em;
+    font-size: 1em;
     height: unset;
-    border-radius: 10px;
-    margin-right: 15px;
+    border-radius: 5px;
   }
   .authorAndAlbum,
   .songInfo {
-    font-size: 1.3em;
+    font-size: 1em;
   }
   .audioSection {
     margin-top: 10px;
   }
   .album {
     max-width: 50%;
-    margin-right: -100px;
   }
   .filterOption {
     font-size: 1.3em;
