@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { Lesson } from './types';
 
 function underFive(item: Lesson): boolean {
@@ -121,4 +121,40 @@ export function useLessonsProgress() {
     lessonsProgress,
     updateLessonProgress,
   };
+}
+
+export function usePrayTime() {
+  const [prayData, setData] = useState(null);
+  const [currentTime, setCurrentTime] = useState('');
+  useEffect(() => {
+    fetch('/api/prayerTimes')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching the data:', error);
+      });
+    const updateTime = () => {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      });
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+
+    const timer = setInterval(updateTime, 60000);
+
+    return () => clearInterval(timer);
+  }, []);
+  return { prayData, currentTime };
 }

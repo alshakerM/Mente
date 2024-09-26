@@ -8,6 +8,21 @@
   z-index: 0;
 }
 
+.loading {
+  background: linear-gradient(90deg, rgb(13, 20, 26), rgb(63, 73, 74));
+  border-radius: 5px;
+  animation: gradientAnimation 1s ease infinite;
+  background-size: 200% 200%;
+  color: rgba(0, 0, 0, 0);
+  width: fit-content;
+}
+
+.times {
+  position: relative;
+  padding-left: 5%;
+  font-size: 1.5em;
+}
+
 .buddhaOutLine {
   width: 100%;
   min-height: 100vh;
@@ -105,5 +120,16 @@
   }
   .buddhaStroke {
     stroke-width: 3px;
+  }
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
