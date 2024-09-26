@@ -1,14 +1,29 @@
 import styles from './HomePage.module.css';
 import { Lessons } from '../Lessons/Lessons';
 import { Footer } from '../Footer/Footer';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ContinueListening } from '../ContinueListening/ContinueListening';
 import { useRouter } from 'next/router';
 import { usePrayTime } from '../../hooks';
+import Notify from '../../pages/notify';
 
 export const HomePage: React.FC = () => {
   const router = useRouter();
-  const { prayData } = usePrayTime();
+  const { prayData, currentTime } = usePrayTime();
+  const { sendNotificationButtonOnClick } = Notify();
+
+  useEffect(() => {
+    if (prayData) {
+      const isPrayTime = prayData.items.some(
+        (item) => item.asr === currentTime.toLocaleLowerCase()
+      );
+      if (currentTime === '05:30 PM' || isPrayTime) {
+        console.log('DDDD', currentTime);
+        sendNotificationButtonOnClick();
+      }
+    }
+  }, [currentTime]);
+
   return (
     <>
       <div className={styles.root}>
@@ -17,7 +32,9 @@ export const HomePage: React.FC = () => {
         </div>
         {prayData ? (
           <div className={styles.times}>
-            <h2>{prayData.title}</h2>
+            <h2>
+              {prayData.title} {prayData.items[0].date_for}
+            </h2>
             <p>Fajr: {prayData.items[0].fajr}</p>
             <p>Dhuhr: {prayData.items[0].dhuhr}</p>
             <p>Asr: {prayData.items[0].asr}</p>

@@ -61,17 +61,8 @@ const Notify = () => {
     console.log(sub);
   };
 
-  const unsubscribeButtonOnClick = async (event) => {
-    event.preventDefault();
-    await subscription.unsubscribe();
-    // TODO: you should call your API to delete or invalidate subscription data on server
-    setSubscription(null);
-    setIsSubscribed(false);
-    console.log('web push unsubscribed!');
-  };
-
   const sendNotificationButtonOnClick = async (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     if (subscription == null) {
       console.error('web push not subscribed');
       return;
@@ -87,8 +78,7 @@ const Notify = () => {
       }),
     });
   };
-
-  return (
+  const res = (
     <div style={{ position: 'relative', zIndex: 55 }}>
       <button onClick={subscribeButtonOnClick} hidden={isSubscribed}>
         Subscribe
@@ -98,5 +88,7 @@ const Notify = () => {
       </button>
     </div>
   );
+
+  return { res, sendNotificationButtonOnClick };
 };
 export default Notify;
