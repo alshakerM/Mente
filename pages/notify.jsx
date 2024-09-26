@@ -90,12 +90,8 @@ const Notify = () => {
 
   return (
     <div style={{ position: 'relative', zIndex: 55 }}>
-      <h1>Next.js + PWA = AWESOME!</h1>
-      <button onClick={subscribeButtonOnClick} disabled={isSubscribed}>
+      <button onClick={subscribeButtonOnClick} hidden={isSubscribed}>
         Subscribe
-      </button>
-      <button onClick={unsubscribeButtonOnClick} disabled={!isSubscribed}>
-        Unsubscribe
       </button>
       <button onClick={sendNotificationButtonOnClick} disabled={!isSubscribed}>
         Send Notification
