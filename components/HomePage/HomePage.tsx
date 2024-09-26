@@ -6,6 +6,17 @@ import { ContinueListening } from '../ContinueListening/ContinueListening';
 import { useRouter } from 'next/router';
 import { usePrayTime } from '../../hooks';
 
+const handleClick = async () => {
+  // Notification.requestPermission().then(window.alert);
+  const sw = await navigator.serviceWorker.ready;
+  const push = await sw.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey:
+      'BGkdHxLRoO9FtwJyP5EZax0v8OpCCDUrnWli5qLpQcg01BiwRfGnObhYk5v1cNIsH0-yfBoWjXf383gKJa8oTsU',
+  });
+  console.log(JSON.stringify(push));
+};
+
 export const HomePage: React.FC = () => {
   const [scrollY, setScrollY] = React.useState(0);
   const router = useRouter();
@@ -119,7 +130,7 @@ export const HomePage: React.FC = () => {
           </svg>
         </div>
         {prayData ? (
-          <div className={styles.times}>
+          <div onClick={handleClick} className={styles.times}>
             <h2>{prayData.title}</h2>
             <p>Fajr: {prayData.items[0].fajr}</p>
             <p>Dhuhr: {prayData.items[0].dhuhr}</p>
