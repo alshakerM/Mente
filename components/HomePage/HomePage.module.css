@@ -6,6 +6,18 @@
   z-index: 0;
 }
 
+.audio {
+  height: 30px;
+  border: none;
+  margin-left: 10%;
+  margin-top: 5%;
+  color: white;
+}
+.audio::-webkit-media-controls-enclosure {
+  border-radius: 5px;
+  background-color: rgba(50, 164, 167, 0.5);
+  color: white;
+}
 .img {
   max-height: 100vh;
   min-width: 100vw;

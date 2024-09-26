@@ -14,8 +14,9 @@ const Notification = (req, res) => {
       .sendNotification(
         subscription,
         JSON.stringify({
-          title: 'Hello Web Push',
-          message: 'Your web push notification is here!',
+          title: "It's time to pray",
+          message: 'حان وقت الصلاة',
+          icon: '/logo512x512.png',
         })
       )
       .then((response) => {

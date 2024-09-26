@@ -73,7 +73,6 @@ export const useNotification = () => {
   };
 
   const sendNotificationButtonOnClick = async () => {
-    //  event.preventDefault();
     if (subscription == null) {
       console.error('web push not subscribed');
       return;

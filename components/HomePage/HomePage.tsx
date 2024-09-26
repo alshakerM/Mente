@@ -1,7 +1,7 @@
 import styles from './HomePage.module.css';
 import { Lessons } from '../Lessons/Lessons';
 import { Footer } from '../Footer/Footer';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ContinueListening } from '../ContinueListening/ContinueListening';
 import { useRouter } from 'next/router';
 import { usePrayTime } from '../../hooks';
@@ -11,15 +11,18 @@ export const HomePage: React.FC = () => {
   const router = useRouter();
   const { prayData, currentTime } = usePrayTime();
   const { sendNotificationButtonOnClick } = useNotification();
+  const audioRef = useRef(null);
+  const [showAudio, setShowAudio] = useState(true);
 
   useEffect(() => {
     if (prayData) {
       const isPrayTime = prayData.items.some(
-        (item) => item.asr === currentTime.toLocaleLowerCase()
+        (item, i) => item[i] === currentTime.toLocaleLowerCase()
       );
-      if (currentTime === '05:47 PM' || isPrayTime) {
-        console.log('DDDD', currentTime);
+      if (currentTime === '08:23 PM' || isPrayTime) {
         sendNotificationButtonOnClick();
+        const audio = new Audio('/sound.mp3');
+        audio.play();
       }
     }
   }, [currentTime]);
@@ -30,12 +33,23 @@ export const HomePage: React.FC = () => {
         <div className={styles.background}>
           <img className={styles.img} src="/image.jpg" />
         </div>
+
+        <audio
+          src="/sound.mp3"
+          autoPlay
+          controls={showAudio}
+          ref={audioRef}
+          onPause={() => setShowAudio(false)}
+          className={styles.audio}
+        />
+
         {prayData ? (
           <div className={styles.times}>
             <h2>
               {prayData.title} {prayData.items[0].date_for}
             </h2>
             <p>Fajr: {prayData.items[0].fajr}</p>
+
             <p>Dhuhr: {prayData.items[0].dhuhr}</p>
             <p>Asr: {prayData.items[0].asr}</p>
             <p>Maghrib: {prayData.items[0].maghrib}</p>
