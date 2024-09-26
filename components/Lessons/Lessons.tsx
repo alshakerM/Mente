@@ -20,14 +20,14 @@ export function Lessons() {
   const { lessonId } = router.query;
   const { lessons, filters, addFilter } = useFilters(AllLessons);
   const { lessonsProgress } = useLessonsProgress();
-
-  const openAudio = lessonId && lessons.find((med) => med.id === lessonId);
+  const openAudio =
+    lessonId && lessons.find((med) => med.id === parseInt(lessonId as string));
 
   return (
     <>
       <div className={styles.contentContainer}>
         <h1 id="lessons" className={styles.title}>
-          Lessons
+          Surahs
         </h1>
         <div className={styles.filtersSection}>
           <p className={styles.filterText}>Filters</p>
@@ -39,8 +39,6 @@ export function Lessons() {
           >
             &lt; 5 minutes
           </button>
-          <button className={styles.filterOption}>Already Listened</button>
-          <button className={styles.filterOption}>Haven’t Listened</button>
           <div>
             <Dropdown
               options={noDuplicatesGuide}

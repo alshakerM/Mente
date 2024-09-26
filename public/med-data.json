@@ -1,164 +1,914 @@
 [
   {
-    "id": "6IKFUwYxP",
-    "date": "2022-01-10T18:32:26.556Z",
-    "title": "1. Introduction & Instructions",
-    "instructor": "Diana Winston",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/01_Introduction_and_Instructions.mp3",
-    "type": "Health and Wellness Meditations",
-    "duration": 248
+    "id": 1,
+    "title": "Al-Fatihah",
+    "instructor": "الفاتحة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/1.mp3",
+    "duration": 34.925714,
+    "type": "makkah"
   },
   {
-    "id": "742eqVxCJg",
-    "date": "2022-01-10T18:32:26.556Z",
-    "title": "2. Body Awareness, Sound, Breath",
-    "instructor": "Diana Winston",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/02_Breath_Sound_Body_Meditation.mp3",
-    "type": "Health and Wellness Meditations",
-    "duration": 720
+    "id": 2,
+    "title": "Al-Baqarah",
+    "instructor": "البقرة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/2.mp3",
+    "duration": 5952.156735,
+    "type": "madinah"
   },
   {
-    "id": "zpv_mTcwE4",
-    "date": "2022-01-10T18:32:26.556Z",
-    "title": "3. Body Scan",
-    "instructor": "Diana Winston",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/03_Body_Scan.mp3",
-    "type": "Health and Wellness Meditations",
-    "duration": 856
+    "id": 3,
+    "title": "Ali 'Imran",
+    "instructor": "آل عمران",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/3.mp3",
+    "duration": 3367.053061,
+    "type": "madinah"
   },
   {
-    "id": "nJsJR0Rnxo",
-    "date": "2022-01-10T18:32:26.556Z",
-    "title": "4. Loving Kindness",
-    "instructor": "Diana Winston",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/04_Loving_Kindness.mp3",
-    "type": "Health and Wellness Meditations",
-    "duration": 677
+    "id": 4,
+    "title": "An-Nisa",
+    "instructor": "النساء",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/4.mp3",
+    "duration": 3549.962449,
+    "type": "madinah"
   },
   {
-    "id": "UF-RGDP4X8",
-    "date": "2022-01-10T18:32:26.556Z",
-    "title": "5. Working with Difficulties",
-    "instructor": "Diana Winston",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/05_Working_with_Difficulties.mp3",
-    "type": "Health and Wellness Meditations",
-    "duration": 489
+    "id": 5,
+    "title": "Al-Ma'idah",
+    "instructor": "المائدة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/5.mp3",
+    "duration": 2701.270204,
+    "type": "madinah"
   },
   {
-    "id": "kqJ3MtNjVu",
-    "date": "2022-01-10T18:32:26.556Z",
-    "title": "6. Tibetan Singing Bowls",
-    "instructor": "Diana Winston",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/06_Tibetan_Singing_Bowls.mp3",
-    "type": "Health and Wellness Meditations",
-    "duration": 509
+    "id": 6,
+    "title": "Al-An'am",
+    "instructor": "الأنعام",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/6.mp3",
+    "duration": 2825.978776,
+    "type": "makkah"
   },
   {
-    "id": "92OmPQKmpY",
-    "date": "2022-01-06T23:00:00.000Z",
-    "title": "Back to Basics of the Breath",
-    "instructor": "Allyson Pimentel",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Hammer010622C.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1895
+    "id": 7,
+    "title": "Al-A'raf",
+    "instructor": "الأعراف",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/7.mp3",
+    "duration": 3213.635918,
+    "type": "makkah"
   },
   {
-    "id": "pd4cU2hzzx",
-    "date": "2022-01-02T23:00:00.000Z",
-    "title": "Mindful Monday with Marv",
-    "instructor": "Marvin G. Belzer",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Monday010322.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1691
+    "id": 8,
+    "title": "Al-Anfal",
+    "instructor": "الأنفال",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/8.mp3",
+    "duration": 1200.822857,
+    "type": "madinah"
   },
   {
-    "id": "zJz26JnR3H",
-    "date": "2021-12-15T23:00:00.000Z",
-    "title": "Mindfulness of Thoughts",
-    "instructor": "Tom Heah",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Hammer121621C.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1856
+    "id": 9,
+    "title": "At-Tawbah",
+    "instructor": "التوبة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/9.mp3",
+    "duration": 2454.047347,
+    "type": "madinah"
   },
   {
-    "id": "6mNyYsGuVs",
-    "date": "2021-12-12T23:00:00.000Z",
-    "title": "Mindful Monday with Marv",
-    "instructor": "Marvin G. Belzer",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Monday121321.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1758
+    "id": 10,
+    "title": "Yunus",
+    "instructor": "يونس",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/10.mp3",
+    "duration": 1747.905306,
+    "type": "makkah"
   },
   {
-    "id": "SoiyLDkYSK",
-    "date": "2021-12-08T23:00:00.000Z",
-    "title": "Mindfulness and End-of-Year Reflections",
-    "instructor": "Allyson Pimentel",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Hammer120921C.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1879
+    "id": 11,
+    "title": "Hud",
+    "instructor": "هود",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/11.mp3",
+    "duration": 1880.372245,
+    "type": "makkah"
   },
   {
-    "id": "TEbBMSf3Xx",
-    "date": "2021-12-05T23:00:00.000Z",
-    "title": "Mindful Monday with Marv",
-    "instructor": "Marvin G. Belzer",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Monday120621.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1834
+    "id": 12,
+    "title": "Yusuf",
+    "instructor": "يوسف",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/12.mp3",
+    "duration": 1627.402449,
+    "type": "makkah"
   },
   {
-    "id": "qcff1SP8kt",
-    "date": "2021-12-01T23:00:00.000Z",
-    "title": "Mindfulness and Lineage",
-    "instructor": "Allyson Pimentel",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Hammer120221C.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1869
+    "id": 13,
+    "title": "Ar-Ra'd",
+    "instructor": "الرعد",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/13.mp3",
+    "duration": 887.980408,
+    "type": "madinah"
   },
   {
-    "id": "BfJjgJuIhF",
-    "date": "2021-11-28T23:00:00.000Z",
-    "title": "Mindful Monday with Marv",
-    "instructor": "Marvin G. Belzer",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Monday112921.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1600
+    "id": 14,
+    "title": "Ibrahim",
+    "instructor": "ابراهيم",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/14.mp3",
+    "duration": 781.453061,
+    "type": "makkah"
   },
   {
-    "id": "Ax0b53xNRv",
-    "date": "2021-11-21T23:00:00.000Z",
-    "title": "Mindful Monday with Marv",
-    "instructor": "Marvin G. Belzer",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Monday112221.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1835
+    "id": 15,
+    "title": "Al-Hijr",
+    "instructor": "الحجر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/15.mp3",
+    "duration": 656.953469,
+    "type": "makkah"
   },
   {
-    "id": "HXujUqxGzU",
-    "date": "2021-11-17T23:00:00.000Z",
-    "title": "Extending Loving Kindness & Gratitude Practice",
-    "instructor": "Diana Winston",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Hammer111821C.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1950
+    "id": 16,
+    "title": "An-Nahl",
+    "instructor": "النحل",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/16.mp3",
+    "duration": 1728.10449,
+    "type": "makkah"
   },
   {
-    "id": "lnwQk9ywfMS",
-    "date": "2021-11-14T23:00:00.000Z",
-    "title": "Mindful Monday with Marv",
-    "instructor": "Marvin G. Belzer",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Monday111521.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1798
+    "id": 17,
+    "title": "Al-Isra",
+    "instructor": "الإسراء",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/17.mp3",
+    "duration": 1519.542857,
+    "type": "makkah"
   },
   {
-    "id": "AjFJkUARgtC",
-    "date": "2021-11-07T23:00:00.000Z",
-    "title": "Mindful Monday with Marv",
-    "instructor": "Marvin G. Belzer",
-    "mp3": "https://www.uclahealth.org/marc/mpeg/Monday110821.mp3",
-    "type": "30-minute guided meditation session",
-    "duration": 1852
+    "id": 18,
+    "title": "Al-Kahf",
+    "instructor": "الكهف",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/18.mp3",
+    "duration": 1417.508571,
+    "type": "makkah"
+  },
+  {
+    "id": 19,
+    "title": "Maryam",
+    "instructor": "مريم",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/19.mp3",
+    "duration": 938.501224,
+    "type": "makkah"
+  },
+  {
+    "id": 20,
+    "title": "Taha",
+    "instructor": "طه",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/20.mp3",
+    "duration": 1142.909388,
+    "type": "makkah"
+  },
+  {
+    "id": 21,
+    "title": "Al-Anbya",
+    "instructor": "الأنبياء",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/21.mp3",
+    "duration": 1142.987755,
+    "type": "makkah"
+  },
+  {
+    "id": 22,
+    "title": "Al-Hajj",
+    "instructor": "الحج",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/22.mp3",
+    "duration": 1183.634286,
+    "type": "madinah"
+  },
+  {
+    "id": 23,
+    "title": "Al-Mu'minun",
+    "instructor": "المؤمنون",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/23.mp3",
+    "duration": 993.776327,
+    "type": "makkah"
+  },
+  {
+    "id": 24,
+    "title": "An-Nur",
+    "instructor": "النور",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/24.mp3",
+    "duration": 1309.492245,
+    "type": "madinah"
+  },
+  {
+    "id": 25,
+    "title": "Al-Furqan",
+    "instructor": "الفرقان",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/25.mp3",
+    "duration": 843.284898,
+    "type": "makkah"
+  },
+  {
+    "id": 26,
+    "title": "Ash-Shu'ara",
+    "instructor": "الشعراء",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/26.mp3",
+    "duration": 1198.942041,
+    "type": "makkah"
+  },
+  {
+    "id": 27,
+    "title": "An-Naml",
+    "instructor": "النمل",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/27.mp3",
+    "duration": 1032.124082,
+    "type": "makkah"
+  },
+  {
+    "id": 28,
+    "title": "Al-Qasas",
+    "instructor": "القصص",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/28.mp3",
+    "duration": 1368.842449,
+    "type": "makkah"
+  },
+  {
+    "id": 29,
+    "title": "Al-'Ankabut",
+    "instructor": "العنكبوت",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/29.mp3",
+    "duration": 908.721633,
+    "type": "makkah"
+  },
+  {
+    "id": 30,
+    "title": "Ar-Rum",
+    "instructor": "الروم",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/30.mp3",
+    "duration": 714.057143,
+    "type": "makkah"
+  },
+  {
+    "id": 31,
+    "title": "Luqman",
+    "instructor": "لقمان",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/31.mp3",
+    "duration": 515.604898,
+    "type": "makkah"
+  },
+  {
+    "id": 32,
+    "title": "As-Sajdah",
+    "instructor": "السجدة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/32.mp3",
+    "duration": 346.200816,
+    "type": "makkah"
+  },
+  {
+    "id": 33,
+    "title": "Al-Ahzab",
+    "instructor": "الأحزاب",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/33.mp3",
+    "duration": 1432.450612,
+    "type": "madinah"
+  },
+  {
+    "id": 34,
+    "title": "Saba",
+    "instructor": "سبإ",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/34.mp3",
+    "duration": 861.910204,
+    "type": "makkah"
+  },
+  {
+    "id": 35,
+    "title": "Fatir",
+    "instructor": "فاطر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/35.mp3",
+    "duration": 692.506122,
+    "type": "makkah"
+  },
+  {
+    "id": 36,
+    "title": "Ya-Sin",
+    "instructor": "يس",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/36.mp3",
+    "duration": 750.811429,
+    "type": "makkah"
+  },
+  {
+    "id": 37,
+    "title": "As-Saffat",
+    "instructor": "الصافات",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/37.mp3",
+    "duration": 851.017143,
+    "type": "makkah"
+  },
+  {
+    "id": 38,
+    "title": "Sad",
+    "instructor": "ص",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/38.mp3",
+    "duration": 689.345306,
+    "type": "makkah"
+  },
+  {
+    "id": 39,
+    "title": "Az-Zumar",
+    "instructor": "الزمر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/39.mp3",
+    "duration": 1128.071837,
+    "type": "makkah"
+  },
+  {
+    "id": 40,
+    "title": "Ghafir",
+    "instructor": "غافر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/40.mp3",
+    "duration": 1204.924082,
+    "type": "makkah"
+  },
+  {
+    "id": 41,
+    "title": "Fussilat",
+    "instructor": "فصلت",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/41.mp3",
+    "duration": 758.961633,
+    "type": "makkah"
+  },
+  {
+    "id": 42,
+    "title": "Ash-Shuraa",
+    "instructor": "الشورى",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/42.mp3",
+    "duration": 890.435918,
+    "type": "makkah"
+  },
+  {
+    "id": 43,
+    "title": "Az-Zukhruf",
+    "instructor": "الزخرف",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/43.mp3",
+    "duration": 959.033469,
+    "type": "makkah"
+  },
+  {
+    "id": 44,
+    "title": "Ad-Dukhan",
+    "instructor": "الدخان",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/44.mp3",
+    "duration": 386.742857,
+    "type": "makkah"
+  },
+  {
+    "id": 45,
+    "title": "Al-Jathiyah",
+    "instructor": "الجاثية",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/45.mp3",
+    "duration": 496.169796,
+    "type": "makkah"
+  },
+  {
+    "id": 46,
+    "title": "Al-Ahqaf",
+    "instructor": "الأحقاف",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/46.mp3",
+    "duration": 629.838367,
+    "type": "makkah"
+  },
+  {
+    "id": 47,
+    "title": "Muhammad",
+    "instructor": "محمد",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/47.mp3",
+    "duration": 551.497143,
+    "type": "madinah"
+  },
+  {
+    "id": 48,
+    "title": "Al-Fath",
+    "instructor": "الفتح",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/48.mp3",
+    "duration": 575.843265,
+    "type": "madinah"
+  },
+  {
+    "id": 49,
+    "title": "Al-Hujurat",
+    "instructor": "الحجرات",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/49.mp3",
+    "duration": 365.844898,
+    "type": "madinah"
+  },
+  {
+    "id": 50,
+    "title": "Qaf",
+    "instructor": "ق",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/50.mp3",
+    "duration": 437.524898,
+    "type": "makkah"
+  },
+  {
+    "id": 51,
+    "title": "Adh-Dhariyat",
+    "instructor": "الذاريات",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/51.mp3",
+    "duration": 401.81551,
+    "type": "makkah"
+  },
+  {
+    "id": 52,
+    "title": "At-Tur",
+    "instructor": "الطور",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/52.mp3",
+    "duration": 334.654694,
+    "type": "makkah"
+  },
+  {
+    "id": 53,
+    "title": "An-Najm",
+    "instructor": "النجم",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/53.mp3",
+    "duration": 394.527347,
+    "type": "makkah"
+  },
+  {
+    "id": 54,
+    "title": "Al-Qamar",
+    "instructor": "القمر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/54.mp3",
+    "duration": 344.581224,
+    "type": "makkah"
+  },
+  {
+    "id": 55,
+    "title": "Ar-Rahman",
+    "instructor": "الرحمن",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/55.mp3",
+    "duration": 473.364898,
+    "type": "madinah"
+  },
+  {
+    "id": 56,
+    "title": "Al-Waqi'ah",
+    "instructor": "الواقعة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/56.mp3",
+    "duration": 377.49551,
+    "type": "makkah"
+  },
+  {
+    "id": 57,
+    "title": "Al-Hadid",
+    "instructor": "الحديد",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/57.mp3",
+    "duration": 524.094694,
+    "type": "madinah"
+  },
+  {
+    "id": 58,
+    "title": "Al-Mujadila",
+    "instructor": "المجادلة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/58.mp3",
+    "duration": 489.325714,
+    "type": "madinah"
+  },
+  {
+    "id": 59,
+    "title": "Al-Hashr",
+    "instructor": "الحشر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/59.mp3",
+    "duration": 462.236735,
+    "type": "madinah"
+  },
+  {
+    "id": 60,
+    "title": "Al-Mumtahanah",
+    "instructor": "الممتحنة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/60.mp3",
+    "duration": 363.911837,
+    "type": "madinah"
+  },
+  {
+    "id": 61,
+    "title": "As-Saf",
+    "instructor": "الصف",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/61.mp3",
+    "duration": 229.041633,
+    "type": "madinah"
+  },
+  {
+    "id": 62,
+    "title": "Al-Jumu'ah",
+    "instructor": "الجمعة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/62.mp3",
+    "duration": 178.050612,
+    "type": "madinah"
+  },
+  {
+    "id": 63,
+    "title": "Al-Munafiqun",
+    "instructor": "المنافقون",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/63.mp3",
+    "duration": 194.586122,
+    "type": "madinah"
+  },
+  {
+    "id": 64,
+    "title": "At-Taghabun",
+    "instructor": "التغابن",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/64.mp3",
+    "duration": 241.92,
+    "type": "madinah"
+  },
+  {
+    "id": 65,
+    "title": "At-Talaq",
+    "instructor": "الطلاق",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/65.mp3",
+    "duration": 284.238367,
+    "type": "madinah"
+  },
+  {
+    "id": 66,
+    "title": "At-Tahrim",
+    "instructor": "التحريم",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/66.mp3",
+    "duration": 278.021224,
+    "type": "madinah"
+  },
+  {
+    "id": 67,
+    "title": "Al-Mulk",
+    "instructor": "الملك",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/67.mp3",
+    "duration": 354.429388,
+    "type": "makkah"
+  },
+  {
+    "id": 68,
+    "title": "Al-Qalam",
+    "instructor": "القلم",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/68.mp3",
+    "duration": 327.653878,
+    "type": "makkah"
+  },
+  {
+    "id": 69,
+    "title": "Al-Haqqah",
+    "instructor": "الحاقة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/69.mp3",
+    "duration": 322.847347,
+    "type": "makkah"
+  },
+  {
+    "id": 70,
+    "title": "Al-Ma'arij",
+    "instructor": "المعارج",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/70.mp3",
+    "duration": 287.660408,
+    "type": "makkah"
+  },
+  {
+    "id": 71,
+    "title": "Nuh",
+    "instructor": "نوح",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/71.mp3",
+    "duration": 250.462041,
+    "type": "makkah"
+  },
+  {
+    "id": 72,
+    "title": "Al-Jinn",
+    "instructor": "الجن",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/72.mp3",
+    "duration": 266.396735,
+    "type": "makkah"
+  },
+  {
+    "id": 73,
+    "title": "Al-Muzzammil",
+    "instructor": "المزمل",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/73.mp3",
+    "duration": 200.411429,
+    "type": "makkah"
+  },
+  {
+    "id": 74,
+    "title": "Al-Muddaththir",
+    "instructor": "المدثر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/74.mp3",
+    "duration": 254.380408,
+    "type": "makkah"
+  },
+  {
+    "id": 75,
+    "title": "Al-Qiyamah",
+    "instructor": "القيامة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/75.mp3",
+    "duration": 157.466122,
+    "type": "makkah"
+  },
+  {
+    "id": 76,
+    "title": "Al-Insan",
+    "instructor": "الانسان",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/76.mp3",
+    "duration": 246.83102,
+    "type": "madinah"
+  },
+  {
+    "id": 77,
+    "title": "Al-Mursalat",
+    "instructor": "المرسلات",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/77.mp3",
+    "duration": 204.826122,
+    "type": "makkah"
+  },
+  {
+    "id": 78,
+    "title": "An-Naba",
+    "instructor": "النبإ",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/78.mp3",
+    "duration": 208.013061,
+    "type": "makkah"
+  },
+  {
+    "id": 79,
+    "title": "An-Nazi'at",
+    "instructor": "النازعات",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/79.mp3",
+    "duration": 176.117551,
+    "type": "makkah"
+  },
+  {
+    "id": 80,
+    "title": "'Abasa",
+    "instructor": "عبس",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/80.mp3",
+    "duration": 145.502041,
+    "type": "makkah"
+  },
+  {
+    "id": 81,
+    "title": "At-Takwir",
+    "instructor": "التكوير",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/81.mp3",
+    "duration": 98.76898,
+    "type": "makkah"
+  },
+  {
+    "id": 82,
+    "title": "Al-Infitar",
+    "instructor": "الإنفطار",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/82.mp3",
+    "duration": 72.620408,
+    "type": "makkah"
+  },
+  {
+    "id": 83,
+    "title": "Al-Mutaffifin",
+    "instructor": "المطففين",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/83.mp3",
+    "duration": 167.079184,
+    "type": "makkah"
+  },
+  {
+    "id": 84,
+    "title": "Al-Inshiqaq",
+    "instructor": "الإنشقاق",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/84.mp3",
+    "duration": 103.392653,
+    "type": "makkah"
+  },
+  {
+    "id": 85,
+    "title": "Al-Buruj",
+    "instructor": "البروج",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/85.mp3",
+    "duration": 106.736327,
+    "type": "makkah"
+  },
+  {
+    "id": 86,
+    "title": "At-Tariq",
+    "instructor": "الطارق",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/86.mp3",
+    "duration": 66.533878,
+    "type": "makkah"
+  },
+  {
+    "id": 87,
+    "title": "Al-A'la",
+    "instructor": "الأعلى",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/87.mp3",
+    "duration": 69.22449,
+    "type": "makkah"
+  },
+  {
+    "id": 88,
+    "title": "Al-Ghashiyah",
+    "instructor": "الغاشية",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/88.mp3",
+    "duration": 98.142041,
+    "type": "makkah"
+  },
+  {
+    "id": 89,
+    "title": "Al-Fajr",
+    "instructor": "الفجر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/89.mp3",
+    "duration": 142.367347,
+    "type": "makkah"
+  },
+  {
+    "id": 90,
+    "title": "Al-Balad",
+    "instructor": "البلد",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/90.mp3",
+    "duration": 76.251429,
+    "type": "makkah"
+  },
+  {
+    "id": 91,
+    "title": "Ash-Shams",
+    "instructor": "الشمس",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/91.mp3",
+    "duration": 56.842449,
+    "type": "makkah"
+  },
+  {
+    "id": 92,
+    "title": "Al-Layl",
+    "instructor": "الليل",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/92.mp3",
+    "duration": 73.717551,
+    "type": "makkah"
+  },
+  {
+    "id": 93,
+    "title": "Ad-Duhaa",
+    "instructor": "الضحى",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/93.mp3",
+    "duration": 42.266122,
+    "type": "makkah"
+  },
+  {
+    "id": 94,
+    "title": "Ash-Sharh",
+    "instructor": "الشرح",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/94.mp3",
+    "duration": 22.700408,
+    "type": "makkah"
+  },
+  {
+    "id": 95,
+    "title": "At-Tin",
+    "instructor": "التين",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/95.mp3",
+    "duration": 34.324898,
+    "type": "makkah"
+  },
+  {
+    "id": 96,
+    "title": "Al-'Alaq",
+    "instructor": "العلق",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/96.mp3",
+    "duration": 67.134694,
+    "type": "makkah"
+  },
+  {
+    "id": 97,
+    "title": "Al-Qadr",
+    "instructor": "القدر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/97.mp3",
+    "duration": 28.604082,
+    "type": "makkah"
+  },
+  {
+    "id": 98,
+    "title": "Al-Bayyinah",
+    "instructor": "البينة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/98.mp3",
+    "duration": 89.286531,
+    "type": "madinah"
+  },
+  {
+    "id": 99,
+    "title": "Az-Zalzalah",
+    "instructor": "الزلزلة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/99.mp3",
+    "duration": 46.28898,
+    "type": "madinah"
+  },
+  {
+    "id": 100,
+    "title": "Al-'Adiyat",
+    "instructor": "العاديات",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/100.mp3",
+    "duration": 52.323265,
+    "type": "makkah"
+  },
+  {
+    "id": 101,
+    "title": "Al-Qari'ah",
+    "instructor": "القارعة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/101.mp3",
+    "duration": 48.74449,
+    "type": "makkah"
+  },
+  {
+    "id": 102,
+    "title": "At-Takathur",
+    "instructor": "التكاثر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/102.mp3",
+    "duration": 38.896327,
+    "type": "makkah"
+  },
+  {
+    "id": 103,
+    "title": "Al-'Asr",
+    "instructor": "العصر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/103.mp3",
+    "duration": 21.786122,
+    "type": "makkah"
+  },
+  {
+    "id": 104,
+    "title": "Al-Humazah",
+    "instructor": "الهمزة",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/104.mp3",
+    "duration": 37.537959,
+    "type": "makkah"
+  },
+  {
+    "id": 105,
+    "title": "Al-Fil",
+    "instructor": "الفيل",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/105.mp3",
+    "duration": 30.981224,
+    "type": "makkah"
+  },
+  {
+    "id": 106,
+    "title": "Quraysh",
+    "instructor": "قريش",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/106.mp3",
+    "duration": 26.305306,
+    "type": "makkah"
+  },
+  {
+    "id": 107,
+    "title": "Al-Ma'un",
+    "instructor": "الماعون",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/107.mp3",
+    "duration": 30.798367,
+    "type": "makkah"
+  },
+  {
+    "id": 108,
+    "title": "Al-Kawthar",
+    "instructor": "الكوثر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/108.mp3",
+    "duration": 13.217959,
+    "type": "makkah"
+  },
+  {
+    "id": 109,
+    "title": "Al-Kafirun",
+    "instructor": "الكافرون",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/109.mp3",
+    "duration": 26.77551,
+    "type": "makkah"
+  },
+  {
+    "id": 110,
+    "title": "An-Nasr",
+    "instructor": "النصر",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/110.mp3",
+    "duration": 22.778776,
+    "type": "madinah"
+  },
+  {
+    "id": 111,
+    "title": "Al-Masad",
+    "instructor": "المسد",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/111.mp3",
+    "duration": 25.652245,
+    "type": "makkah"
+  },
+  {
+    "id": 112,
+    "title": "Al-Ikhlas",
+    "instructor": "الإخلاص",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/112.mp3",
+    "duration": 12.852245,
+    "type": "makkah"
+  },
+  {
+    "id": 113,
+    "title": "Al-Falaq",
+    "instructor": "الفلق",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/113.mp3",
+    "duration": 21.420408,
+    "type": "makkah"
+  },
+  {
+    "id": 114,
+    "title": "An-Nas",
+    "instructor": "الناس",
+    "mp3": "https://download.quranicaudio.com/qdc/abdurrahmaan_as_sudais/murattal/114.mp3",
+    "duration": 26.174694,
+    "type": "makkah"
   }
 ]
