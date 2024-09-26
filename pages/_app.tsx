@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Samara's Gift</title>
+        <title>Samara&#39;s Gift</title>
       </Head>
       <Component {...pageProps} />
     </>
