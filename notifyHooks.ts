@@ -12,7 +12,13 @@ const base64ToUint8Array = (base64) => {
   }
   return outputArray;
 };
-const Notify = () => {
+declare global {
+  interface Window {
+    workbox: any;
+  }
+}
+
+export const useNotification = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [subscription, setSubscription] = useState(null);
   const [registration, setRegistration] = useState(null);
@@ -26,15 +32,20 @@ const Notify = () => {
       // run only in browser
       navigator.serviceWorker.ready.then((reg) => {
         reg.pushManager.getSubscription().then((sub) => {
-          if (
-            sub &&
-            !(
-              sub.expirationTime &&
-              Date.now() > sub.expirationTime - 5 * 60 * 1000
-            )
-          ) {
-            setSubscription(sub);
-            setIsSubscribed(true);
+          if (sub) {
+            const subWithExpiration = sub as PushSubscription & {
+              expirationTime?: number;
+            }; // Extend the type with expirationTime
+
+            if (
+              !(
+                subWithExpiration.expirationTime &&
+                Date.now() > subWithExpiration.expirationTime - 5 * 60 * 1000
+              )
+            ) {
+              setSubscription(subWithExpiration);
+              setIsSubscribed(true);
+            }
           }
         });
         setRegistration(reg);
@@ -61,17 +72,8 @@ const Notify = () => {
     console.log(sub);
   };
 
-  const unsubscribeButtonOnClick = async (event) => {
-    event.preventDefault();
-    await subscription.unsubscribe();
-    // TODO: you should call your API to delete or invalidate subscription data on server
-    setSubscription(null);
-    setIsSubscribed(false);
-    console.log('web push unsubscribed!');
-  };
-
-  const sendNotificationButtonOnClick = async (event) => {
-    event.preventDefault();
+  const sendNotificationButtonOnClick = async () => {
+    //  event.preventDefault();
     if (subscription == null) {
       console.error('web push not subscribed');
       return;
@@ -87,16 +89,9 @@ const Notify = () => {
       }),
     });
   };
-
-  return (
-    <div style={{ position: 'relative', zIndex: 55 }}>
-      <button onClick={subscribeButtonOnClick} hidden={isSubscribed}>
-        Subscribe
-      </button>
-      <button onClick={sendNotificationButtonOnClick} disabled={!isSubscribed}>
-        Send Notification
-      </button>
-    </div>
-  );
+  return {
+    sendNotificationButtonOnClick,
+    subscribeButtonOnClick,
+    isSubscribed,
+  };
 };
-export default Notify;

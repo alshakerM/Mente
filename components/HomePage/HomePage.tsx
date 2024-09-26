@@ -5,19 +5,19 @@ import React, { useEffect } from 'react';
 import { ContinueListening } from '../ContinueListening/ContinueListening';
 import { useRouter } from 'next/router';
 import { usePrayTime } from '../../hooks';
-import Notify from '../../pages/notify';
+import { useNotification } from '../../notifyHooks';
 
 export const HomePage: React.FC = () => {
   const router = useRouter();
   const { prayData, currentTime } = usePrayTime();
-  const { sendNotificationButtonOnClick } = Notify();
+  const { sendNotificationButtonOnClick } = useNotification();
 
   useEffect(() => {
     if (prayData) {
       const isPrayTime = prayData.items.some(
         (item) => item.asr === currentTime.toLocaleLowerCase()
       );
-      if (currentTime === '05:30 PM' || isPrayTime) {
+      if (currentTime === '05:47 PM' || isPrayTime) {
         console.log('DDDD', currentTime);
         sendNotificationButtonOnClick();
       }
