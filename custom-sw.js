@@ -163,13 +163,18 @@ registerRoute(
 self.addEventListener('push', (event) => {
   const data = event.data ? event.data.json() : {};
 
-  const title = data.title || 'Notification';
+  const notificationData = data.notification;
+
+  const title = notificationData.title || 'Notification';
   const options = {
-    body: data.message || 'You have a new notification!',
-    icon: data.icon || '/icon.png',
-    badge: data.badge || '/badge.png',
+    body:
+      notificationData.body ||
+      notificationData.message ||
+      'You have a new notification!',
+    icon: notificationData.icon || '/icon.png',
+    badge: notificationData.badge || '/badge.png',
     data: {
-      url: data.url || '/', // Open the URL when notification is clicked
+      url: notificationData.url || data.url || '/', // Use URL from notification or top-level data
     },
   };
 
