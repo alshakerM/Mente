@@ -11,19 +11,17 @@ export const HomePage: React.FC = () => {
   const router = useRouter();
   const { prayData, currentTime } = usePrayTime();
   const { sendNotificationButtonOnClick } = useNotification();
-  const audioRef = useRef(null);
-  const [showAudio, setShowAudio] = useState(true);
-
+  const notifyButton = useRef(null);
   useEffect(() => {
     if (prayData) {
-      Object.values(prayData).includes(currentTime.toLocaleLowerCase());
       const isPrayTime = prayData.items.some((item) =>
         Object.values(item).includes(currentTime.toLocaleLowerCase())
       );
-      if (currentTime === '08 50 PM' || isPrayTime) {
-        sendNotificationButtonOnClick();
+      if (currentTime === '09:01 PM' || isPrayTime) {
         if (Notification.permission === 'granted') {
+          notifyButton.current.click();
           const audio = new Audio('/sound.mp3');
+          sendNotificationButtonOnClick();
           audio.play();
         }
       }
@@ -36,23 +34,19 @@ export const HomePage: React.FC = () => {
         <div className={styles.background}>
           <img className={styles.img} src="/image.jpg" />
         </div>
-
-        <audio
-          src="/sound.mp3"
-          autoPlay
-          controls={showAudio}
-          ref={audioRef}
-          onPause={() => setShowAudio(false)}
-          className={styles.audio}
-        />
-
+        <button
+          ref={notifyButton}
+          style={{ position: 'relative' }}
+          onClick={sendNotificationButtonOnClick}
+        >
+          Notify
+        </button>
         {prayData ? (
           <div className={styles.times}>
             <h2>
               {prayData.title} {prayData.items[0].date_for}
             </h2>
             <p>Fajr: {prayData.items[0].fajr}</p>
-
             <p>Dhuhr: {prayData.items[0].dhuhr}</p>
             <p>Asr: {prayData.items[0].asr}</p>
             <p>Maghrib: {prayData.items[0].maghrib}</p>
