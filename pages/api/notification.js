@@ -14,9 +14,15 @@ const Notification = (req, res) => {
       .sendNotification(
         subscription,
         JSON.stringify({
-          title: "It's time to pray",
-          message: 'حان وقت الصلاة',
-          icon: '/logo512x512.png',
+          notification: {
+            title: "It's time to pray",
+            body: 'حان وقت الصلاة',
+            icon: '/logo512x512.png',
+            badge: '/badge.png',
+          },
+          data: {
+            url: '/your-app-url',
+          },
         })
       )
       .then((response) => {
