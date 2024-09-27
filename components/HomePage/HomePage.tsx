@@ -20,7 +20,7 @@ export const HomePage: React.FC = () => {
       const isPrayTime = prayData.items.some((item) =>
         Object.values(item).includes(currentTime.toLocaleLowerCase())
       );
-      if (currentTime === '08:44 PM' || isPrayTime) {
+      if (currentTime === '08 50 PM' || isPrayTime) {
         sendNotificationButtonOnClick();
         if (Notification.permission === 'granted') {
           const audio = new Audio('/sound.mp3');
