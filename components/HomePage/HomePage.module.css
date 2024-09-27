@@ -1,11 +1,41 @@
 .background {
-  height: 100vh;
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   scroll-behavior: smooth;
   z-index: 0;
+}
+
+.audio {
+  height: 30px;
+  border: none;
+  margin-left: 10%;
+  margin-top: 5%;
+  color: white;
+}
+.audio::-webkit-media-controls-enclosure {
+  border-radius: 5px;
+  background-color: rgba(50, 164, 167, 0.5);
+  color: white;
+}
+.img {
+  max-height: 100vh;
+  min-width: 100vw;
+}
+
+.loading {
+  background: linear-gradient(90deg, rgb(13, 20, 26), rgb(63, 73, 74));
+  border-radius: 5px;
+  animation: gradientAnimation 1s ease infinite;
+  background-size: 200% 200%;
+  color: rgba(0, 0, 0, 0);
+  width: fit-content;
+}
+
+.times {
+  position: relative;
+  padding-left: 5%;
+  font-size: 1.5em;
 }
 
 .buddhaOutLine {
@@ -105,5 +135,16 @@
   }
   .buddhaStroke {
     stroke-width: 3px;
+  }
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

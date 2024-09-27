@@ -1,7 +1,7 @@
 {
-  "short_name": "Mente",
-  "name": "Mente mediation app",
-  "description": "mediation app",
+  "short_name": "Samara's Gift",
+  "name": "Samara's prayer reminder app",
+  "description": "prayer reminder app",
   "icons": [
     {
       "src": "/logo192x192.png",
@@ -14,7 +14,7 @@
       "sizes": "512x512"
     },
     {
-      "src": "/maskable.png",
+      "src": "/logo512x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"

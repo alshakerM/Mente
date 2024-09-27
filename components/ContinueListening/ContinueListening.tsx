@@ -42,7 +42,7 @@ export const ContinueListening: React.FC<ContinueListeningProps> = ({
     return null;
   }
 
-  const lesson = AllLessons.find((l) => l.id === lastListenedID);
+  const lesson = AllLessons.find((l) => l.id === parseInt(lastListenedID));
 
   return (
     <Link shallow href={`?lessonId=${lesson?.id}`}>
