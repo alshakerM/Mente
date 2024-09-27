@@ -11,17 +11,16 @@ export const HomePage: React.FC = () => {
   const router = useRouter();
   const { prayData, currentTime } = usePrayTime();
   const { sendNotificationButtonOnClick } = useNotification();
-  const notifyButton = useRef(null);
+
   useEffect(() => {
     if (prayData) {
       const isPrayTime = prayData.items.some((item) =>
         Object.values(item).includes(currentTime.toLocaleLowerCase())
       );
-      if (currentTime === '09:41 PM' || isPrayTime) {
+      if (currentTime === '09:43 PM' || isPrayTime) {
         if (Notification.permission === 'granted') {
-          notifyButton.current.click();
-          const audio = new Audio('/sound.mp3');
           sendNotificationButtonOnClick();
+          const audio = new Audio('/sound.mp3');
           audio.play();
         }
       }
@@ -34,13 +33,6 @@ export const HomePage: React.FC = () => {
         <div className={styles.background}>
           <img className={styles.img} src="/image.jpg" />
         </div>
-        <button
-          ref={notifyButton}
-          style={{ position: 'relative' }}
-          onClick={sendNotificationButtonOnClick}
-        >
-          Notify
-        </button>
         {prayData ? (
           <div className={styles.times}>
             <h2>
