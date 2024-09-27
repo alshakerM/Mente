@@ -44,14 +44,10 @@ const Notify = () => {
 
   const subscribeButtonOnClick = async (event) => {
     event.preventDefault();
-    Notification.requestPermission();
-    if (Notification.permission !== 'granted') {
-      window.alert('Notifications permission denied');
-    }
     const sub = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: base64ToUint8Array(
-        'BJfh3HNf_v_kJntAYXPiT8CPud1aFoqFwzn3-qXrLcwl_T6VCOyF981mI5O3FHI8UIZlyTW6OMa1pByQBXPqISA'
+        process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY
       ),
     });
     // TODO: you should call your API to save subscription data on server in order to send web push notification from server
@@ -61,10 +57,41 @@ const Notify = () => {
     console.log(sub);
   };
 
+  const unsubscribeButtonOnClick = async (event) => {
+    event.preventDefault();
+    await subscription.unsubscribe();
+    // TODO: you should call your API to delete or invalidate subscription data on server
+    setSubscription(null);
+    setIsSubscribed(false);
+    console.log('web push unsubscribed!');
+  };
+
+  const sendNotificationButtonOnClick = async (event) => {
+    event.preventDefault();
+    if (subscription == null) {
+      console.error('web push not subscribed');
+      return;
+    }
+
+    await fetch('/api/notification', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        subscription,
+      }),
+    });
+  };
+
   return (
     <div style={{ position: 'relative', zIndex: 55 }}>
-      <button onClick={subscribeButtonOnClick} hidden={isSubscribed}>
+      <button onClick={subscribeButtonOnClick} disabled={isSubscribed}>
         Subscribe
+      </button>
+
+      <button onClick={sendNotificationButtonOnClick} disabled={!isSubscribed}>
+        Send Notification
       </button>
     </div>
   );
