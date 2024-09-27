@@ -21,7 +21,7 @@ const Notification = (req, res) => {
             badge: '/badge.png',
           },
           data: {
-            url: '/your-app-url',
+            url: 'https://mente.vercel.app/',
           },
         })
       )
