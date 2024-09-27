@@ -82,7 +82,7 @@ const Notify = () => {
       </button>
 
       <button onClick={sendNotificationButtonOnClick} disabled={!isSubscribed}>
-        Send Notification
+        Send Notifi
       </button>
     </div>
   );
