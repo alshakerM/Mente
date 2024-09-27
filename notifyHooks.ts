@@ -77,7 +77,7 @@ export const useNotification = () => {
       console.error('web push not subscribed');
       return;
     }
-    console.log('MARFWAN');
+
     await fetch('/api/notification', {
       method: 'POST',
       headers: {
