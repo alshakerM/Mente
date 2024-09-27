@@ -16,18 +16,19 @@ export const HomePage: React.FC = () => {
 
   useEffect(() => {
     if (prayData) {
-      const isPrayTime = prayData.items.some(
-        (item, i) => item[i] === currentTime.toLocaleLowerCase()
+      Object.values(prayData).includes(currentTime.toLocaleLowerCase());
+      const isPrayTime = prayData.items.some((item) =>
+        Object.values(item).includes(currentTime.toLocaleLowerCase())
       );
       if (isPrayTime) {
-        if (Notification.permission !== 'granted') {
+        if (Notification.permission === 'granted') {
           sendNotificationButtonOnClick();
           const audio = new Audio('/sound.mp3');
           audio.play();
         }
       }
     }
-  }, [currentTime]);
+  }, [currentTime, prayData]);
 
   return (
     <>
