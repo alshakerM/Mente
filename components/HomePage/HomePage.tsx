@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 export const HomePage: React.FC = () => {
   const [scrollY, setScrollY] = React.useState(0);
   const router = useRouter();
+
   React.useEffect(() => {
     function handler() {
       setScrollY(window.scrollY / 5);
@@ -18,6 +19,7 @@ export const HomePage: React.FC = () => {
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
   }, []);
+
   return (
     <>
       <div className={styles.root}>
