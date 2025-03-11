@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 
 export const HomePage: React.FC = () => {
   const [scrollY, setScrollY] = React.useState(0);
+
   const router = useRouter();
 
   React.useEffect(() => {
